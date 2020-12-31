@@ -1,0 +1,16 @@
+<h2>Destination: <%= @destination.location%><h2>
+<p> Country: <%= @destination.country%> </p> 
+<p> Description: <%= @destination.description %>
+<p><%= image_tag @destination.image %></p>
+<h3>Activities</h3>
+<% @destination.activities.each do |activity| %>
+<ul>
+    <%=link_to activity.name, activity%>
+</ul>
+<%end%>
+<h3>Foods</h3>
+<% @destination.foods.each do |food| %>
+<ul>
+    <%=link_to food.cuisine, food %>
+</ul>
+<%end%>
