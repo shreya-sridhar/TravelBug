@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
+    byebug
         @user.destroy
         redirect_to root_path
     end
