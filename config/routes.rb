@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :trips
   resources :destinations, only: [:show, :index]
   resources :users, only: [:show,:index]
+  get '/countries/:name', to:'countries#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
