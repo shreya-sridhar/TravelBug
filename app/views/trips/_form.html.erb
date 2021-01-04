@@ -1,0 +1,22 @@
+<%= form_with model:@trip do |f| %>
+
+    <%= f.collection_select :user_id, @users, :id, :name %><br>
+
+    <%= f.label :date, 'Date of Trip:' %>
+    <%= f.text_field :date %><br>
+
+    <%= f.label :num_of_people, 'No. of Travellers:' %>
+    <%= f.text_field :num_of_people %><br>
+
+    <%= f.label :traveller_names, 'Name of All Travellers:' %>
+    <%= f.text_field :traveller_names %><br>
+
+    <%= f.label :budget, 'Budget:' %>
+    <%= f.text_field :budget %><br>
+
+    <%= f.collection_select :destination_id, @destinations, :id, :country %><br>
+
+    <br>
+
+    <%= f.submit%>
+<% end %>

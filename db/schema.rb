@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_31_222318) do
+ActiveRecord::Schema.define(version: 2021_01_03_195042) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_222318) do
     t.integer "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "budget"
     t.index ["destination_id"], name: "index_trips_on_destination_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end

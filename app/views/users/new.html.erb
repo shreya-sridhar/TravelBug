@@ -1,0 +1,14 @@
+<%= form_with model:@user do |f| %>
+    <%= f.label :name, 'Name:' %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :age, 'Age:' %>
+    <%= f.text_field :age %><br>
+
+    <%= f.label :hometown, 'Hometown:' %>
+    <%= f.text_field :hometown %><br>
+
+    <br>
+    
+    <%= f.submit 'Create Profile'%>
+<% end %>
