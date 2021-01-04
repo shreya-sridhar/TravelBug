@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_175131) do
     t.integer "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "budget"
     t.index ["destination_id"], name: "index_trips_on_destination_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
