@@ -2,3 +2,8 @@
 <h4> Description: <%= @activity.description %></h4>
 <p><%= image_tag @activity.image %></p>
 
+
+
+<%= button_to '👍', likes_path, method: :post, params: { :activity_id => @activity.id, emoji: '👍', user_id: User.first.id } %> | <p><%= @activity.likes_count %></p>
+
+<%= button_to '👎', likes_path, method: :post, params: { :activity_id => @activity.id, emoji: '👎', user_id: User.first.id } %> | <p><%= @activity.dislikes_count %></p>
