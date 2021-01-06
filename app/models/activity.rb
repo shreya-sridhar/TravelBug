@@ -5,24 +5,10 @@ class Activity < ApplicationRecord
     has_many :users, through: :likes
 
     def likes_count
-        count = 0
-
-        self.likes.each do |like| 
-            if like.emoji == '👍'
-                count += 1
-            end
-        end
-        return count
+        count = self.likes.select{ |like| like.emoji == '👍' }.length  
     end
 
     def dislikes_count
-        count = 0
-
-        self.likes.each do |like| 
-            if like.emoji == '👎'
-                count += 1
-            end
-        end
-        return count
+        count = self.likes.select{ |like| like.emoji == '👎' }.length
     end
 end

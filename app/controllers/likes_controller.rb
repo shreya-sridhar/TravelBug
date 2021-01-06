@@ -2,10 +2,10 @@ class LikesController < ApplicationController
 
     def show
         @activities = Activity.find(params[:id])
-        @likes = @activity.likes.sum{ |act| act.likes }
+        @likes = @activity.likes_count
         @featured = @activity.max{ |max| max.likes }
 
-        @dislikes = @activity.sum{ |act| act.dislikes }
+        @dislikes = @activity.dislikes_count
         @featured = @activity.max{ |max| max.dislikes }
     end
 
