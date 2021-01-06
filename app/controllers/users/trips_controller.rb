@@ -2,9 +2,9 @@ class Users::TripsController < ApplicationController
     before_action :find_trip, only: [:edit, :itinerary]
 
     def show
-        @user = User.find(params[:user_id])
-        @activity_array = []
-        @trip = Trip.find(params[:id])
+        @user = User.find(params[:user_id].to_i)
+        @trip = Trip.find(params[:id].to_i)
+        @destination = @trip.destination 
         #redirect_to user_trip_path(user_id: @user.id, trip_id: @trip.id, activity_array: @activity_array)
     end
 

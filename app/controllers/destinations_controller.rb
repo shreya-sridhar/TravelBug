@@ -1,16 +1,14 @@
 class DestinationsController < ApplicationController
     def show
-        @destination = Destination.find(params[:id])
         @trip = Trip.find(params[:trip_id].to_i)
-        @user = User.find(params[:user_id].to_i)
-        @booked = @destination.sum{ |des| des.booked }
-        @featured = @destination.max{ |max| max.booked }
+        @user = @trip.user
+        @destination = @trip.destination 
     end
 
     def index
-        @destinations = Destination.all
         @trip = Trip.find(params[:trip_id].to_i)
-        @user = User.find(params[:user_id].to_i)
+        @user = @trip.user
+        @destinations = Destination.all.map{|dest| dest if dest.country == @trip.destination.country}.compact
     end
 
     def adddestination

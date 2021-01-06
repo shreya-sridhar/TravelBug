@@ -1,12 +1,7 @@
 class LikesController < ApplicationController
 
     def show
-        @activities = Activity.find(params[:id])
-        @likes = @activity.likes_count
-        @featured = @activity.max{ |max| max.likes }
-
-        @dislikes = @activity.dislikes_count
-        @featured = @activity.max{ |max| max.dislikes }
+        redirect_to activity_path
     end
 
     def create

@@ -8,7 +8,7 @@
     <%= f.label :traveller_names, 'Name of All Travellers:' %>
     <%= f.text_field :traveller_names %><br>
 
-    <%= f.label :budget, 'Budget:' %>
+    <%= f.label :budget , 'Budget (in USD):' %>
     <%= f.text_field :budget, :value => '$' %><br>
 
     <%= f.collection_select :destination_id, @destinations, :id, :country %><br>

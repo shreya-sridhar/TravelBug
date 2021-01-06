@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   resources :activities, only: [:show, :index]
   resources :destinations, only: [:show, :index]
   get '/countries/:name', to:'countries#show'
-
+  get '/welcome/stats', as: 'stats'
   
   root to: 'welcome#home'
   resources :users do
     resources :trips, controller: 'users/trips', controller: 'users/trips'
   end
+
+
   post 'activities/:trip', to: 'activities#addactivities', as: 'add_activities'
   post 'destinations/:trip', to: 'destinations#adddestination', as: 'add_destination'
 

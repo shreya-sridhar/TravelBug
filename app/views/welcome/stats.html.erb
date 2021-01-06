@@ -1,0 +1,14 @@
+<p> Average Trip Budget : $<%=Trip.average_trip_budget%><p>
+<p> Average Trip Budgets By Destination : </p>
+<% Destination.all.each do |d| %>
+    <p><%= d.location %> : $<%= Trip.average_budget_by_destination(d.id) %></p>
+<%end%>
+
+<p> Featured Destinations </p>
+
+
+<p> 2021 Trips By Month: </p>
+<% [1,2,3,4,5,6,7,8,9,10,11,12].each do |mon| %>
+<p> Month <%= mon %>: # of Trips: <%= Trip.trip_frequency_by_date(mon) %> </p>
+<%end%>
+

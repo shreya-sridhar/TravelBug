@@ -1,12 +1,11 @@
 class ActivitiesController < ApplicationController
     def show 
-        @activity = Activity.find(params[:id])
-        @user = User.all.sample
-        @trip = @user.trips.sample
-        @destination = @trip.destination.id
-
-        @likes = @activity.likes_count
-        @dislikes = @activity.dislikes_count
+        @trip = Trip.find(params[:trip_id].to_i)
+        @user = @trip.user
+        @activity = Activity.find(params[:id].to_i)
+        
+        # @likes = @activity.likes_count
+        # @dislikes = @activity.dislikes_count
     end 
 
     def index 
@@ -29,21 +28,16 @@ class ActivitiesController < ApplicationController
         #         iter['acti']
         #     end 
         # end
-        
-        trip_id = params[:trip].to_i
-        @trip = Trip.find(params[:trip])
-        @activity = Activity.find(params[:activity])
-        @user = User.all.sample
+        @trip = Trip.find(params[:trip].to_i)
+        @activity = Activity.find(params[:activity].to_i)
+        @user = @trip.user
         if @trip.activities == nil 
             # @trip.activities == @activity.name
             # @trip.save
-            @trip.update_attribute(:activities, @activity.name)
-            @trip.update_attribute(:expense, @activity.price)
+            @trip.update_attribute(:activities, @activity.id.to_s)
         else
-            @activities = @trip.activities + " " + @activity.name 
+            @activities = @trip.activities + " " + @activity.id.to_s
             @trip.update_attribute(:activities, @activities )
-            @expense = @trip.expense + @activity.price 
-            @trip.update_attribute(:expense, @expense)
         end
         redirect_to user_trip_path(user_id: @user.id, id: @trip.id)
     end
