@@ -22,7 +22,6 @@ class Users::TripsController < ApplicationController
     end 
 
     def create
-    byebug
         @user = User.find(params[:user_id])
         @trip = @user.trips.create(trips_params)
         @user_id = trips_params[:user_id]
@@ -46,7 +45,7 @@ private
     end
 
     def trips_params
-        params.require(:trip).permit(:user_id, :date, :num_of_people, :traveller_names, :budget, :destination_id,:activity,:id)
+        params.require(:trip).permit(:user_id, :end_date, :start_date, :num_of_people, :traveller_names, :budget, :destination_id,:activity,:id)
     end
     
 end

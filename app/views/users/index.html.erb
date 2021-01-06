@@ -1,3 +1,3 @@
-<% @users.each do |user| %>
+<% @users.each do |user| %>  
     <p><%= link_to user.name, user %> : <%= link_to "Create Trip", new_user_trip_path(user.id) %></p>
 <% end %>

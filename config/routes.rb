@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :foods, only: [:show, :index]
   resources :activities, only: [:show, :index]
   resources :destinations, only: [:show, :index]
+  resources :login, only: [:new, :create]
+
   get '/countries/:name', to:'countries#show'
 
-  
   root to: 'welcome#home'
   resources :users do
     resources :trips, controller: 'users/trips', controller: 'users/trips'
