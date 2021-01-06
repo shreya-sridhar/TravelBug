@@ -25,9 +25,9 @@ d2 = Destination.create(location: "Cairo",country:"Egypt" , description:"ancient
 d3 = Destination.create(location: "Las Vegas",country: "United States" , description: "city that never sleeps" ,image:"https://www.telegraph.co.uk/content/dam/Travel/2020/May/las-vegas-strip-istock.jpg?imwidth=1400")
 d4 = Destination.create(location: "Berlin" ,country: "Germany", description: "deep history",image:"https://upload.wikimedia.org/wikipedia/commons/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg")
 
-t1 = Trip.create(date: 2021-01-20 ,num_of_people:2 , traveller_names:"Pam", user_id: u1.id, destination_id:d1.id)
-t2 = Trip.create(date: 2021-02-14,num_of_people: 4 , traveller_names:"Alex,Dan,Bob", user_id:u4.id, destination_id:d3.id)
-t3 = Trip.create(date: 2021-03-25,num_of_people: 5 , traveller_names:"April,Jenny,Hope,Lisa", user_id: u2.id, destination_id:d2.id)
+t1 = Trip.create(start_date: 2021-01-20, end_date: 2021-02-14, num_of_people:2 , traveller_names:"Pam", user_id: u1.id, destination_id:d1.id)
+t2 = Trip.create(start_date: 2021-02-14, end_date: 2021-03-25, num_of_people: 4 , traveller_names:"Alex,Dan,Bob", user_id:u4.id, destination_id:d3.id)
+t3 = Trip.create(start_date: 2021-03-25, end_date: 2021-04-06, num_of_people: 5 , traveller_names:"April,Jenny,Hope,Lisa", user_id: u2.id, destination_id:d2.id)
 
 a1 = Activity.create(name: "Skydiving" ,description: "explore the skies", image: "https://skydivesantabarbara.com/wp-content/uploads/2019/04/Skydive_Santa_Barbara_Tandem_Skydiving.jpg", category:"adventure",price: 200 )
 a2 = Activity.create(name: "Surfing" ,description: "hit the ocean", image:"https://www.outsideonline.com/sites/default/files/styles/full-page/public/2019/05/23/woman-surfing-wave_h.jpg?itok=XmjJhGlT", category:"outdoors",price:80)

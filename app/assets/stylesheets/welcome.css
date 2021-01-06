@@ -1,0 +1,62 @@
+
+html { 
+  background: url(backgrounds/main_background2.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+    background-color: transparent; 
+}
+
+.homepage {
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-family: Monaco, sans-serif;
+    font-size: 65px;
+    font-weight: 100px;
+    letter-spacing: 4;
+    color:white;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+
+h4 {
+    font-family: Monaco, sans-serif;
+    font-size: 20px;
+    letter-spacing: 4;
+    color:white;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+
+.button1 {
+    background-color: #95361b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #95361b;
+}
+
+.button1:hover {
+    background-color: #95361b;
+    color: white;
+}

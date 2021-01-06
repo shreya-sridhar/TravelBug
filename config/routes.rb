@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :foods, only: [:show, :index]
   resources :activities, only: [:show, :index]
   resources :destinations, only: [:show, :index]
+  resources :login, only: [:new, :create]
+
   get '/countries/:name', to:'countries#show'
   get '/welcome/stats', as: 'stats'
   
