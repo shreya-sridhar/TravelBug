@@ -1,7 +1,5 @@
-<%= form_with model:@trip do |f| %>
-
-    <%= f.collection_select :user_id, @users, :id, :name %><br>
-
+<%= form_for([@user,@trip]) do |f| %>
+ 
     <%= f.label :date, 'Date of Trip:' %>
     <%= f.text_field :date %><br>
 
@@ -17,6 +15,6 @@
     <%= f.collection_select :destination_id, @destinations, :id, :country %><br>
 
     <br>
-
-    <%= f.submit%>
+    <%= f.submit "Submit"%>
 <% end %>
+

@@ -1,7 +1,9 @@
 <h2>Destination: <%= @destination.location%><h2>
 <p> Country: <%= @destination.country%> </p> 
 <p> Description: <%= @destination.description %>
-<p><%= image_tag @destination.image %></p>
+<%= button_to 'Go Back To All Destinations',destinations_path, method: :get %> 
+<%= button_to "Add Destination", add_destination_path(destination:@destination.id,trip:@trip.id)%>
+<p><%= image_tag(@destination.image, :size => "520x360") %></p>
 <h3>Activities</h3>
 <% @destination.activities.each do |activity| %>
 <ul>
@@ -14,3 +16,5 @@
     <%=link_to food.cuisine, food %>
 </ul>
 <%end%>
+
+

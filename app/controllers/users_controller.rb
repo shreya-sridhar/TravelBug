@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        
     end
 
     def new
@@ -26,7 +27,6 @@ class UsersController < ApplicationController
     end
 
     def destroy
-    byebug
         @user.destroy
         redirect_to root_path
     end

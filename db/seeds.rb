@@ -31,11 +31,11 @@ t3 = Trip.create(date: 2021-03-25,num_of_people: 5 , traveller_names:"April,Jenn
 
 a1 = Activity.create(name: "Skydiving" ,description: "explore the skies", image: "https://skydivesantabarbara.com/wp-content/uploads/2019/04/Skydive_Santa_Barbara_Tandem_Skydiving.jpg", category:"adventure",price: 200 )
 a2 = Activity.create(name: "Surfing" ,description: "hit the ocean", image:"https://www.outsideonline.com/sites/default/files/styles/full-page/public/2019/05/23/woman-surfing-wave_h.jpg?itok=XmjJhGlT", category:"outdoors",price:80)
-a3 = Activity.create(name: "Casino",description:"Make or lose money", image:"https://img1.10bestmedia.com/Images/Photos/381459/Firekeepers-Casino-Hotel_54_990x660.jpg", category:"",price: 50)
+a3 = Activity.create(name: "Casino",description:"Make or lose money", image:"https://img1.10bestmedia.com/Images/Photos/381459/Firekeepers-Casino-Hotel_54_990x660.jpg", category:"gambling",price: 50)
 
-f1 = Food.create(cuisine: "Italian" ,restaurant_name: "Mario's",dish: "Carbonara",image:"https://www.gimmesomeoven.com/wp-content/uploads/2013/10/Pasta-Carbonara-Recipe-1.jpg", category:,price:)
-f2 = Food.create(cuisine: "Mexican",restaurant_name: "3 Peppers",dish:"quesadillas",image:"https://www.theendlessmeal.com/wp-content/uploads/2020/08/BBQ-Chicken-Quesadillas-3.jpg", category:,price:)
-f3 = Food.create(cuisine: "French" ,restaurant_name:"C'est la vie",dish:"Escargot",image:"https://assets.epicurious.com/photos/57a8adfbb10b4fb03f234f37/master/pass/escargots-a-la-bourguignonne.jpg", category:,price:)
+f1 = Food.create(cuisine: "Italian" ,restaurant_name: "Mario's",dish: "Carbonara",image:"https://www.gimmesomeoven.com/wp-content/uploads/2013/10/Pasta-Carbonara-Recipe-1.jpg")
+f2 = Food.create(cuisine: "Mexican",restaurant_name: "3 Peppers",dish:"quesadillas",image:"https://www.theendlessmeal.com/wp-content/uploads/2020/08/BBQ-Chicken-Quesadillas-3.jpg")
+f3 = Food.create(cuisine: "French" ,restaurant_name:"C'est la vie",dish:"Escargot",image:"https://assets.epicurious.com/photos/57a8adfbb10b4fb03f234f37/master/pass/escargots-a-la-bourguignonne.jpg")
 
 da1 = DestinationActivity.create(destination_id: d1.id,activity_id:a2.id)
 da2 = DestinationActivity.create(destination_id: d2.id ,activity_id:a1.id)

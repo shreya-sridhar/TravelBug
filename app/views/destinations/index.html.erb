@@ -2,7 +2,8 @@
 <% @destinations.each do |destination| %>
     <ul>
         <h5><li><%=destination.location %>
-        <a href="<%= destination_url(destination) %>"><%= image_tag(destination.image, :size => "260x180") %> </a></li></h5>
+        <%= link_to "Add Destination", destination_path(destination, trip_id:@trip.id,user_id:@user.id)%>
+        <%= image_tag(destination.image, :size => "260x180") %></li></h5>
     </ul>
 <%end%>
 

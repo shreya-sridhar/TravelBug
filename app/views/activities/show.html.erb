@@ -1,4 +1,6 @@
 <h2><%= @activity.name%><h2>
 <h4> Description: <%= @activity.description %></h4>
+<h4> Price: $<%= @activity.price %></h4>
+<%= button_to 'Add Activity',add_activities_path(trip:@trip, activity:@activity, destination:@destination), method: :post %> 
 <p><%= image_tag @activity.image %></p>
 
