@@ -1,3 +1,9 @@
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p><%= error %> </p>
+    <% end %>
+<% end %>
+
 <%= form_with model:@user do |f| %>
     <%= f.label :name, 'Name:' %>
     <%= f.text_field :name %><br>
