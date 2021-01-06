@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         else
             flash[:errors] = @user.errors.full_messages
             redirect_to @new_user_path
+        end
     end
 
     def edit
@@ -44,4 +45,5 @@ private
     def users_params
         params.require(:user).permit(:name, :age, :hometown)
     end
+
 end

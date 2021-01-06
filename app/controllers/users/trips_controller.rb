@@ -22,6 +22,7 @@ class Users::TripsController < ApplicationController
     end 
 
     def create
+    byebug
         @user = User.find(params[:user_id])
         @trip = @user.trips.create(trips_params)
         @user_id = trips_params[:user_id]

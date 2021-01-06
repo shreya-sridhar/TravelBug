@@ -3,8 +3,7 @@ class DestinationsController < ApplicationController
         @destination = Destination.find(params[:id])
         @trip = Trip.find(params[:trip_id].to_i)
         @user = User.find(params[:user_id].to_i)
-        @booked = @destination.sum{ |des| des.booked }
-        @featured = @destination.max{ |max| max.booked }
+        
     end
 
     def index
