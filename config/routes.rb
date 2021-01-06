@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :activities, only: [:show, :index]
   resources :trips
   resources :destinations, only: [:show, :index]
+  get '/countries/:name', to:'countries#show'
   resources :users
 
   root to: 'welcome#home'
