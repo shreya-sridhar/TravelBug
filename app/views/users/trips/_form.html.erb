@@ -1,7 +1,6 @@
 <%= form_for([@user,@trip]) do |f| %>
  
-    <%= f.label :date, 'Date of Trip:' %>
-    <%= f.text_field :date %><br>
+    <%= f.label :date, 'Start Date:' %> <%= f.date_field :date %> <%= f.label :date, 'End Date:' %> <%= f.date_field :date %><br>
 
     <%= f.label :num_of_people, 'No. of Travellers:' %>
     <%= f.text_field :num_of_people %><br>
@@ -10,7 +9,7 @@
     <%= f.text_field :traveller_names %><br>
 
     <%= f.label :budget, 'Budget:' %>
-    <%= f.text_field :budget %><br>
+    <%= f.text_field :budget, :value => '$' %><br>
 
     <%= f.collection_select :destination_id, @destinations, :id, :country %><br>
 

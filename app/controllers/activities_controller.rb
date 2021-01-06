@@ -4,6 +4,9 @@ class ActivitiesController < ApplicationController
         @user = User.all.sample
         @trip = @user.trips.sample
         @destination = @trip.destination.id
+
+        @likes = @activity.likes_count
+        @dislikes = @activity.dislikes_count
     end 
 
     def index 
