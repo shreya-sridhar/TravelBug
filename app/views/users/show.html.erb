@@ -1,13 +1,20 @@
-<div class="<%= user_trip_url %>">
-    <h2><%= @user.name %></h2>
-    <p>Age: <%= @user.age %></p>
-    <p> Hometown: <%= @user.hometown %></p>
+<div class='wrapper1'>
+    <div class='user_header'
+        <h1> <%= @user.name %>'s Main Account </h1>
+    </div>
 
+    <div class='user_info'>
+        <p>Age: <%= @user.age %></p>
+        <p> Hometown: <%= @user.hometown %></p>
 
-    <%= image_tag("https://cdn.dribbble.com/users/788099/screenshots/4579867/travels_holiday_kit8-net.png") %>
+        <%= image_tag("https://cdn.dribbble.com/users/788099/screenshots/4579867/travels_holiday_kit8-net.png") %>
 
-
-    <%= button_to 'Edit', edit_user_path(@user), class:"button2" %>  <%= button_to 'Delete', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class:"button2" %>
-
-    <%= button_to 'View All Trips', user_trips_path(@user), method: :get, class:"button3" %>
+        <div class='user_buttons'>
+            <%= button_to 'New Trip', new_user_trip_path(@user), method: :get, class:"button3" %> 
+            <%= button_to 'Edit', edit_user_path(@user), method: :get, class:"button2" %>  
+            <%= button_to 'Delete', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class:"button3" %>
+            <%= button_to 'More Info', stats_path, method: :get, class:"button2" %> 
+            <%= button_to 'View All Trips', user_trips_path(@user), method: :get, class:"button3" %>
+        </div>
+    </div>
 </div>

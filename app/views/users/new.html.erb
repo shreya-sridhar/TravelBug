@@ -5,6 +5,13 @@
 <% end %>
 
 <%= form_with model:@user do |f| %>
+
+    <%= f.label :username, 'Create username:' %>
+    <%= f.text_field :username %><br>
+
+    <%= f.label :password, 'Create password:' %>
+    <%= f.text_field :password %><br>
+
     <%= f.label :name, 'Name:' %>
     <%= f.text_field :name %><br>
 
@@ -16,5 +23,5 @@
 
     <br>
     
-    <%= f.submit 'Create Profile'%>
+    <%= f.submit 'Complete Sign Up'%>
 <% end %>

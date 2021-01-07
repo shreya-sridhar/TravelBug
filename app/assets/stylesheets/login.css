@@ -1,0 +1,87 @@
+html, body {
+    font-family: Monaco, sans-serif;
+    height: 100%;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* #login {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}  */
+
+.wrapper { 
+    height: 100%;
+    width: 100%;
+    background: url(backgrounds/main_background2.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.title {
+    width: 400px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100px;
+    margin: auto;
+    border-radius: 15px 15px 0 0;
+    background: linear-gradient(-135deg, #95361b, #ab8b72);
+}
+
+.login_form {
+    margin: auto;
+    width: 375px;
+    height: 400px;
+    background: ghostwhite;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+    border: 3px solid #95361b;
+    padding: 10px;
+}
+
+.field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+input[type=text] {
+    font-size: large;
+    font-weight: 10;
+    padding: 15px;
+    width: 90%;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border:0;
+    margin: 10px 0;
+    box-shadow: 0 0 4px #95361b;
+    transition: .3s box-shadow
+}
+
+input[type=password] {
+    font-size: large;
+    font-weight: 10;
+    padding: 15px;
+    width: 90%;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border:0;
+    margin: 10px 0;
+    box-shadow: 0 0 4px #95361b;
+    transition: .3s box-shadow
+}
+
+.submit {
+    margin-top: 150px;
+}
