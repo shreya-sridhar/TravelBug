@@ -5,7 +5,7 @@ class Trip < ApplicationRecord
 
     def trip_date
         if self.start_date.to_i < DateTime.now.to_i
-            errors.add(:start_date, "Date is in the past. Please input a valid date.")
+            errors.add(:start_date, "is in the past. Please input a valid date.")
         end 
     end 
 
@@ -22,14 +22,13 @@ class Trip < ApplicationRecord
 
     def total_expense
         total = 0
-        self.hash_of_activities.each do |k,v|
+        self.hash_of_activities.each do |k, v|
             total += v 
         end
         return total
     end
 
     def average_trip_time_by_destination
-
     end
 
     def self.average_trip_budget
@@ -39,12 +38,14 @@ class Trip < ApplicationRecord
 
     def self.average_budget_by_destination(destination)
         trips = Trip.where(destination_id: destination)
-        budgets = trips.all.map{|t| t.budget}.compact
-        avg_budget = budgets.sum/budgets.count
+        if !trips[0] == nil
+            budgets = trips.all.map{|t| t.budget}.compact
+            avg_budget = budgets.sum/budgets.count
+        end
     end
 
     def self.trip_frequency_by_date(mon)
-        dates = Trip.all.map{|t| t.date}.compact
+        dates = Trip.all.map{|t| t.start_date}.compact
         
         case mon
         when 1
@@ -70,7 +71,7 @@ class Trip < ApplicationRecord
         when 11
             dates.map{|d| d.month if d.month == 11}.compact.count
         when 12
-            dates.map{|d| d.month if d.month == 11}.compact.count
+            dates.map{|d| d.month if d.month == 12}.compact.count
         end
 
     end

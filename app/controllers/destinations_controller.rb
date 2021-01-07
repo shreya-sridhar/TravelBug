@@ -9,6 +9,7 @@ class DestinationsController < ApplicationController
         @trip = Trip.find(params[:trip_id].to_i)
         @user = @trip.user
         @destinations = Destination.all.map{|dest| dest if dest.country == @trip.destination.country}.compact
+
     end
 
     def adddestination
