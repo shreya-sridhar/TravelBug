@@ -15,15 +15,6 @@ Food.destroy_all
 DestinationActivity.destroy_all
 DestinationFood.destroy_all
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'country_map.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-    t = Destination.new
-    t.location = row['location']
-    t.country = row['country']
-    t.save
-end
-
 
 u1 = User.create(name: "Tim", age: 20, hometown: "Alabama")
 u2 = User.create(name: "Alice", age: 19, hometown: "Miami")
