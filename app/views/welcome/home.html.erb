@@ -2,7 +2,9 @@
     <h1><%= 'Welcome to TravelBug 🐞' %></h1>
     <h4><%= "We're going on a trip, in our favorite rocket ship!" %></h4>
 
-    
+    <% Destination.all.each do |d|%>
+    <%= Getdatum.get_photo(d)%>
+    <%end%>
 # This button is going to be changed to Sign Up and Log in, after auth get implemented. 
 
     <%= button_to 'Create Itinerary',users_path, method: :get, class:"button1" %> 

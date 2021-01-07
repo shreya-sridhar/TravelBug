@@ -32,4 +32,30 @@ class Getdatum < ApplicationRecord
         return restaurant_image
   end 
 
+  def self.get_destination_image_data(destination)
+    url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input="+destination.location+",%20"+destination.country+"+&key=AIzaSyC0UZckU_eK8heofiWpXTUYU-IpJo0KhnI&inputtype=textquery&fields=name,photos"
+    uri = URI.parse(url)
+    response = Net::HTTP.get_response(uri)
+    response.body
+  end
+
+  def self.get_photo(destination)
+    dest_image = JSON.parse(self.get_destination_image_data(destination))
+    photo_ref = dest_image["candidates"][0]["photos"][0]["photo_reference"]
+    x = self.dest_images(photo_ref)
+    byebug
+    
+    y = x.split('<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\')
+    
+
+  end
+
+  def self.dest_images(photo_ref)
+    url = "https://maps.googleapis.com/maps/api/place/photo?photoreference="+photo_ref+"&key=AIzaSyC0UZckU_eK8heofiWpXTUYU-IpJo0KhnI&maxwidth=400&maxheight=400"
+    uri = URI.parse(url)
+    response = Net::HTTP.get_response(uri)
+    response.body
+  end
+
+
 end
