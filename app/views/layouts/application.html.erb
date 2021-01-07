@@ -12,23 +12,22 @@
 
   <body>
 
-    <% if request.path != '/' %>
-        <%  if session[:user_id] %>
-            <%= button_to 'Logout', logout_path, method: :delete, class:"button1" %>  
-        <% else %>
-            <%= button_to 'Login', new_login_path, method: :post, class:"button1" %> 
-        <% end %>
-    <% end %>
-
-    <br>
-
     <% if flash[:errors]  %>
         <% flash[:errors].each do |error| %>
             <%= error %>
         <% end %>
     <% end %>
 
-
     <%= yield %>
+
+        <% if request.path != '/' %>
+        <%  if session[:user_id] %>
+            <%= button_to 'Logout', logout_path, method: :delete, class:"button1" %>  
+        <% else %>
+            <%= button_to 'Sign Up', new_user_path, method: :get, class:"button1" %> 
+        <% end %>
+    <% end %>
+
+    
   </body>
 </html>
