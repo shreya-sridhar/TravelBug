@@ -1,11 +1,8 @@
 class ActivitiesController < ApplicationController
-    def show 
+    def show
         @trip = Trip.find(params[:trip_id].to_i)
         @user = @trip.user
         @activity = Activity.find(params[:id].to_i)
-        
-        # @likes = @activity.likes_count
-        # @dislikes = @activity.dislikes_count
     end 
 
     def index 
@@ -13,21 +10,6 @@ class ActivitiesController < ApplicationController
     end
 
     def addactivities
-        # if destination == 'destination'
-        #     if action == 'add'
-        #         @iter[destination] = []    
-        #     else
-        #         @iter.delete(destination)
-        #     end 
-        # end
-        # else 
-        #     if action == 'add' 
-        #         iter['activities'] = []
-        #         iter['activities'] << activity 
-        #     else
-        #         iter['acti']
-        #     end 
-        # end
         @trip = Trip.find(params[:trip].to_i)
         @activity = Activity.find(params[:activity].to_i)
         @user = @trip.user
@@ -39,7 +21,7 @@ class ActivitiesController < ApplicationController
             @activities = @trip.activities + " " + @activity.id.to_s
             @trip.update_attribute(:activities, @activities )
         end
-        redirect_to user_trip_path(user_id: @user.id, id: @trip.id)
+        redirect_to user_trip_path(@user,@trip)
     end
 end
 

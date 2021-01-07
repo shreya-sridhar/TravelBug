@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
 
 User.destroy_all 
 Destination.destroy_all
@@ -19,6 +20,8 @@ u1 = User.create(name: "Tim", age: 20, hometown: "Alabama")
 u2 = User.create(name: "Alice", age: 19, hometown: "Miami")
 u3 = User.create(name: "Beth", age: 35, hometown: "Dallas")
 u4 = User.create(name: "John", age: 54, hometown: "Los Angeles")
+
+
 
 d1 = Destination.create(location: "Hawaii",country: "United States" , description: "beaches all around" ,image:"https://img1.10bestmedia.com/Images/Photos/374469/GettyImages-1038532990_54_990x660.jpg")
 d2 = Destination.create(location: "Cairo",country:"Egypt" , description:"ancient civilizations" ,image:"https://rvca738f6h5tbwmj3mxylox3-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/GI_815359526_CitadelView_Cairo.jpg")

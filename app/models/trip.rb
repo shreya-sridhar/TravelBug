@@ -39,12 +39,14 @@ class Trip < ApplicationRecord
 
     def self.average_budget_by_destination(destination)
         trips = Trip.where(destination_id: destination)
-        budgets = trips.all.map{|t| t.budget}.compact
-        avg_budget = budgets.sum/budgets.count
+        if trips.first
+            budgets = trips.all.map{|t| t.budget}.compact
+            avg_budget = budgets.sum/budgets.count
+        end
     end
 
     def self.trip_frequency_by_date(mon)
-        dates = Trip.all.map{|t| t.date}.compact
+        dates = Trip.all.map{|t| t.start_date}.compact
         
         case mon
         when 1
@@ -75,17 +77,16 @@ class Trip < ApplicationRecord
 
     end
 
-    # def featured_destinations
-    #     destinations = Trip.all.map{|t| t.destination}.compact 
-    #     dest_count = {}
-    #     destination.each do |d|
-    #         if not dest_count.key?(d)
-    #             dest_count[d] = destination.count(d)
-    #         end
-    #     end
-    #     byebug
-    #     dest_count.sort.to_h.first(4)
-    # end
+    def self.featured_destinations
+        destinations = Trip.all.map{|t| t.destination}.compact 
+        dest_count = {}
+        destinations.each do |d|
+            if not dest_count.key?(d)
+                dest_count[d.location] = destinations.count(d)
+            end
+        end
+        dest_count.sort.to_h.first(4)
+    end
 
 end
 

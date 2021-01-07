@@ -1,4 +1,12 @@
 <h2> Destinations <h2>
+
+<p> Most Popular Destinations </p>
+<% Trip.featured_destinations.each do |k,v| %>
+<ul>
+    <li><%= k %></li>
+</ul>
+<%end%>
+
 <% @destinations.each do |destination| %>
     <ul>
         <h5><li><%=destination.location %></h5>

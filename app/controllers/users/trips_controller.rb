@@ -4,7 +4,10 @@ class Users::TripsController < ApplicationController
     def show
         @user = User.find(params[:user_id].to_i)
         @trip = Trip.find(params[:id].to_i)
-        @destination = @trip.destination 
+        if params[:destination]
+            @destination = Destination.find(params[:destination_id].to_i)
+            @trip.destination = @destination
+        end 
         #redirect_to user_trip_path(user_id: @user.id, trip_id: @trip.id, activity_array: @activity_array)
     end
 
@@ -24,6 +27,7 @@ class Users::TripsController < ApplicationController
     def create
         @user = User.find(params[:user_id])
         @trip = @user.trips.create(trips_params)
+        @trip.destination = nil
         @user_id = trips_params[:user_id]
         @destinations = Destination.all
         redirect_to destinations_path(user_id:@user.id,trip_id:@trip.id)

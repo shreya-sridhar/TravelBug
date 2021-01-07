@@ -2,7 +2,7 @@ class DestinationsController < ApplicationController
     def show
         @trip = Trip.find(params[:trip_id].to_i)
         @user = @trip.user
-        @destination = @trip.destination 
+        @destination = Destination.find(params[:id])
     end
 
     def index
@@ -15,11 +15,10 @@ class DestinationsController < ApplicationController
         @destination = Destination.find(params[:destination].to_i)
         @trip = Trip.find(params[:trip].to_i)
         @user = @trip.user
-        if @trip.destination == nil 
-            @trip.update_attribute(:destination_id, @destination.id)
-        end
-        redirect_to user_trip_path(user_id: @user.id, id: @trip.id)
+        @trip.update_attribute(:destination_id, @destination.id)
+        redirect_to user_trip_path(user_id: @user.id, id: @trip.id,destination_id: @destination.id)
     end
+
 
 end
 
