@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
 
 User.destroy_all 
 Destination.destroy_all
@@ -13,6 +14,15 @@ Activity.destroy_all
 Food.destroy_all
 DestinationActivity.destroy_all
 DestinationFood.destroy_all
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'country_map.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+    t = Destination.new
+    t.location = row['location']
+    t.country = row['country']
+    t.save
+end
 
 
 u1 = User.create(name: "Tim", age: 20, hometown: "Alabama")
