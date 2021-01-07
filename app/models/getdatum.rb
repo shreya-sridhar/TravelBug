@@ -45,9 +45,8 @@ class Getdatum < ApplicationRecord
     x = self.dest_images(photo_ref)
     byebug
     
-    y = x.split('<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\')
+    # y = x.split("<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\")"
     
-
   end
 
   def self.dest_images(photo_ref)
