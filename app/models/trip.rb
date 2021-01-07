@@ -38,9 +38,12 @@ class Trip < ApplicationRecord
 
     def self.average_budget_by_destination(destination)
         trips = Trip.where(destination_id: destination)
-        if !trips[0] == nil
+        if !trips[0] == nil 
             budgets = trips.all.map{|t| t.budget}.compact
             avg_budget = budgets.sum/budgets.count
+            return avg_budget 
+        else 
+            return 'No trips to this destination yet'
         end
     end
 
