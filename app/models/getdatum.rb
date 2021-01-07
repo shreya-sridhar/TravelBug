@@ -43,10 +43,9 @@ class Getdatum < ApplicationRecord
     dest_image = JSON.parse(self.get_destination_image_data(destination))
     photo_ref = dest_image["candidates"][0]["photos"][0]["photo_reference"]
     x = self.dest_images(photo_ref)
-    byebug
-    
-    # y = x.split("<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<TITLE>302 Moved</TITLE></HEAD><BODY>\n<H1>302 Moved</H1>\nThe document has moved\n<A HREF=\")"
-    
+    y = Nokogiri::HTML.parse(x)
+    image_url = y.xpath('//a/@href')[0].value
+    return image_url
   end
 
   def self.dest_images(photo_ref)
@@ -58,3 +57,4 @@ class Getdatum < ApplicationRecord
 
 
 end
+
