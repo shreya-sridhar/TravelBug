@@ -11,13 +11,13 @@ class Users::TripsController < ApplicationController
     def index 
     #running into issues saying page redirected too many times
         @user = User.find(params[:user_id])
-        @trips = Trip.all
+        @trips = Trip.where(user_id:@user.id)
 
-        if @trips
-            redirect_to user_trips_path(@user)
-        else
-            flash[:errors] = ["No trips to view. Please click on New Trip to create one."]
-        end
+        # if @trips
+            render user_trips_path(@user)
+        # else
+        #     flash[:errors] = ["No trips to view. Please click on New Trip to create one."]
+        # end
     end 
 
 
