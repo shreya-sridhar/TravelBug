@@ -3,6 +3,7 @@
   They will automatically be included in application.css.
 */
 
+
 .wrapper1 { 
     background-color: darkslategray;
 }
@@ -74,3 +75,4 @@
 .user_buttons {
     display: inline-flex;
 }
+
