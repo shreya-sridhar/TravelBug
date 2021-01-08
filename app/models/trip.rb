@@ -2,10 +2,11 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :destination
   validate :trip_date
+  validates_presence_of :start_date, :end_date, :num_of_people, :traveller_names, :budget, :destination_id
 
     def trip_date
         if self.start_date.to_i < DateTime.now.to_i
-            errors.add(:start_date, "Date is in the past. Please input a valid date.")
+            errors.add(:start_date, "is in the past. Please input a valid date.")
         end 
     end 
 
@@ -22,14 +23,13 @@ class Trip < ApplicationRecord
 
     def total_expense
         total = 0
-        self.hash_of_activities.each do |k,v|
+        self.hash_of_activities.each do |k, v|
             total += v 
         end
         return total
     end
 
     def average_trip_time_by_destination
-
     end
 
     def self.average_trip_budget
@@ -74,7 +74,7 @@ class Trip < ApplicationRecord
         when 11
             dates.map{|d| d.month if d.month == 11}.compact.count
         when 12
-            dates.map{|d| d.month if d.month == 11}.compact.count
+            dates.map{|d| d.month if d.month == 12}.compact.count
         end
 
     end

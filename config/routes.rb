@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :destinations, only: [:show, :index]
   resources :login, only: [:new, :create]
 
-  get '/countries/:name', to:'countries#show'
-  get '/welcome/stats', as: 'stats'
+  get '/countries/:name', to: 'countries#show', as: 'countries'
+  get '/users/stats', to: 'users#stats', as: 'stats'
   
   root to: 'welcome#home'
   resources :users do
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   patch '/activities/:id/dislikes', to: 'activities#dislikes', as: 'dislikes'
   patch '/activities/:id/add_likes', to: 'activities#add_likes', as:'add_likes'
+
+  delete "logout", to: "login#destroy", as: "logout"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 

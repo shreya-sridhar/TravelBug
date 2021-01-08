@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
+    skip_before_action :require_login,  :only => [:create, :new]
 
     def show 
     end
@@ -15,11 +16,15 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(users_params)
+        login_user(@user.id)
+
         if @user.valid?
             redirect_to @user
         else
             flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
+
+            #ask about whether you go to the new user or new login
         end
     end
 
@@ -35,7 +40,9 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to root_path
     end
-
+    
+    def stats
+    end
 private
 
     def find_user
@@ -43,7 +50,7 @@ private
     end
 
     def users_params
-        params.require(:user).permit(:name, :age, :hometown)
+        params.require(:user).permit(:name, :age, :hometown, :username, :password)
     end
 
 end

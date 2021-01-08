@@ -1,10 +1,13 @@
-<div class="homepage">  
-    <h1><%= 'Welcome to TravelBug 🐞' %></h1>
-    <h4><%= "We're going on a trip, in our favorite rocket ship!" %></h4>
-    <%# <%= Getdatum.get_restaurants(Destination.first.city)  %> %>
-# This button is going to be changed to Sign Up and Log in, after auth get implemented. 
+<div class="homepage_background" id='home'> 
 
-    <%= button_to 'Create Itinerary',users_path, method: :get, class:"button1" %> 
-
+    <div class="homepage">  
+        <h1 class='homepage-h1'><%= 'Welcome to TravelBug 🐞' %></h1>
+        <h4 class='homepage-h4'><%= "We're going on a trip, in our favorite rocket ship!" %></h4>
+    </div>
+    <%# <%= Getdatum.get_restaurants(Destination.first.city)  %>
+    <div class="homepage_submit">
+        <%= button_to 'Sign Up', new_user_path, method: :get, class:"button1" %> 
+        <%= button_to 'Login', new_login_path, method: :get, class:"button1" %>
+    </div>
+    
 </div>
-

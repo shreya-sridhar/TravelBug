@@ -9,4 +9,6 @@ class User < ApplicationRecord
     validates_uniqueness_of :name
 
     validates :age, numericality: {greater_than: 18}
+
+    has_secure_password 
 end

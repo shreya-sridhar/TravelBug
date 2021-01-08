@@ -8,4 +8,6 @@
 <%= button_to 'Add Activity',add_activities_path(trip:@trip, activity:@activity, destination:@destination), method: :post %> 
 <p><%= image_tag @activity.image , :size => "780x540" %></p>
 
+<%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
+
 

@@ -1,4 +1,4 @@
-
+<h1> <%= @user.name %>'s Main Account </h1>
 
 <% @user.trips.each do |trip| %>
     <p> Number of travellers : <%= trip.num_of_people %></p>
@@ -6,5 +6,8 @@
     <p> Budget : <%= trip.budget%></p>
     <p> Destination : <%= trip.destination.location %></p>
     <%= link_to "View Trip Details", user_trip_path(@user,trip) %>
-<%end%>
+<% end %>
+
+<%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
+<%= button_to 'Back', :back, class:"button3" %>
 

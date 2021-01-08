@@ -12,8 +12,14 @@ class Users::TripsController < ApplicationController
     end
 
     def index 
+    #running into issues saying page redirected too many times
         @user = User.find(params[:user_id])
-        @trips = Trip.all
+        @trips = @user.trips
+
+        if @trips.length == 0
+            flash[:errors] = ["No trips to view. Please click on New Trip to create one."]
+            redirect_to user_path(@user)
+        end
     end 
 
 
@@ -31,6 +37,18 @@ class Users::TripsController < ApplicationController
         @trip.save
         
         redirect_to destinations_path(user_id:@user.id,trip_id:@trip.id)
+
+        # @user = User.find(params[:user_id])
+        # @trip = @user.trips.create(trips_params)
+        # @user_id = trips_params[:user_id]
+        # @destinations = Destination.all
+
+        # if @trip.valid?
+        #     redirect_to destinations_path(user_id: @user.id, trip_id: @trip.id)
+        # else
+        #     flash[:errors] = @trip.errors.full_messages
+        #     redirect_to new_user_trip_path(@user)
+        # end
     end
 
     def edit

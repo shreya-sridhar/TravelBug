@@ -15,7 +15,8 @@
 <h3><%=link_to "Dining", destination_foods_path(@destination) %></h3>
  <p><%= image_tag(@destination.image, :size => "780x540") %></p>
 
-
-
+    <%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
+    <%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
+    <%= button_to 'Back', :back, class:"button3" %>
 
 

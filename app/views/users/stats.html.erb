@@ -9,3 +9,5 @@
 <p> Number of trips in <%= Date::MONTHNAMES[mon] %>  : <%= Trip.trip_frequency_by_date(mon) %> </p>
 <%end%>
 
+<%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
+<%= button_to 'Back', :back, class:"button3" %>
