@@ -33,8 +33,10 @@ class Trip < ApplicationRecord
     end
 
     def self.average_trip_budget
-        budgets = Trip.all.map{|t| t.budget}.compact
-        avg_budget = budgets.sum/budgets.count
+            budgets = Trip.all.map{|t| t.budget}.compact
+            if budgets.first
+                avg_budget = budgets.sum/budgets.count
+            end
     end
 
     def self.average_budget_by_destination(destination)

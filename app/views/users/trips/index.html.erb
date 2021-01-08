@@ -1,3 +1,5 @@
+
+
 <% @user.trips.each do |trip| %>
     <p> Number of travellers : <%= trip.num_of_people %></p>
     <p> Fellow Travellers : <%= trip.traveller_names %> </p>
@@ -5,5 +7,4 @@
     <p> Destination : <%= trip.destination.location %></p>
     <%= link_to "View Trip Details", user_trip_path(@user,trip) %>
 <%end%>
-
 

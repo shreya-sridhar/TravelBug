@@ -1,2 +1,40 @@
-<%= render 'form' %>
+<html>
+<body>
+<div class = 'triphome'>
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p><%= error %> </p>
+    <% end %>
+<% end %>
+
+<%= form_for([@user, @trip]) do |f| %>
+ 
+    <%= f.label :date, 'Start Date:' %> 
+    <%= f.date_field :start_date %> 
+    
+    <%= f.label :date, 'End Date:' %> 
+    <%= f.date_field :end_date %><br>
+
+    <%= f.label :num_of_people, 'No. of Travellers:' %>
+    <%= f.text_field :num_of_people %><br>
+
+    <%= f.label :traveller_names, 'Name of All Travellers:' %>
+    <%= f.text_field :traveller_names %><br>
+
+    <%= f.label :budget , 'Budget (in USD):' %>
+    <%= f.text_field :budget, :value => '$' %><br>
+
+    <%= f.collection_select :destination_id, @destinations, :id, :country %><br>
+
+    <br>
+    <%= f.submit "Submit"%>
+<% end %>
+
+</div>
+<p><%= image_tag("
+https://content.thriveglobal.com/wp-content/uploads/2018/05/christine-roy-343235-unsplash.jpg", :size => "780x540") %></p>
+
+</body>
+</head>
+
 

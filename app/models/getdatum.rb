@@ -11,6 +11,10 @@ class Getdatum < ApplicationRecord
     response.body
   end
 
+  def address(destination)
+    [destination.city,destination.country].compact.join(', ')
+  end
+
   def self.get_xid_data(xid)
     url = "https://api.opentripmap.com/0.1/en/places/xid/"+xid+"?apikey=5ae2e3f221c38a28845f05b616ae2d304541d9f690f8d882b9ee73f4"
     uri = URI.parse(url)
@@ -18,7 +22,8 @@ class Getdatum < ApplicationRecord
     response.body
   end
 
-  def self.get_restaurants(lat,lon)
+  def self.get_restaurants(destination)
+    
         restaurant_hash = {}
         # we use the JSON library to parse the API response into nicely formatted JSON
         restaurants = JSON.parse(self.get_restaurant_data(lat,lon))

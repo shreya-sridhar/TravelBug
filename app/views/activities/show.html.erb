@@ -6,6 +6,6 @@
 
 <%= button_to '👎', like_path, method: :post, params: { :activity_id => @activity.id, emoji: '👎', user_id: @trip.user.id } %> | <p><%= @dislikes %></p>
 <%= button_to 'Add Activity',add_activities_path(trip:@trip, activity:@activity, destination:@destination), method: :post %> 
-<p><%= image_tag @activity.image %></p>
+<p><%= image_tag @activity.image , :size => "780x540" %></p>
 
 

@@ -21,8 +21,16 @@ csv.each do |row|
   t = Destination.new
   t.country = row['country']
   t.location = row['location']
+  t.image = Getdatum.get_photo(t)
   t.save
+  puts "done"
 end
+
+# d1 = Destination.create(location: "Hawaii",country: "United States" , description: "beaches all around" ,image:"https://img1.10bestmedia.com/Images/Photos/374469/GettyImages-1038532990_54_990x660.jpg")
+# d2 = Destination.create(location: "Cairo",country:"Egypt" , description:"ancient civilizations" ,image:"https://rvca738f6h5tbwmj3mxylox3-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/GI_815359526_CitadelView_Cairo.jpg")
+# d3 = Destination.create(location: "Las Vegas",country: "United States" , description: "city that never sleeps" ,image:"https://www.telegraph.co.uk/content/dam/Travel/2020/May/las-vegas-strip-istock.jpg?imwidth=1400")
+# d4 = Destination.create(location: "Berlin" ,country: "Germany", description: "deep history",image:"https://upload.wikimedia.org/wikipedia/commons/6/6c/Aerial_view_of_Berlin_%2832881394137%29.jpg")
+
 
 u1 = User.create(name: "Tim", age: 20, hometown: "Alabama")
 u2 = User.create(name: "Alice", age: 19, hometown: "Miami")
@@ -42,13 +50,21 @@ f2 = Food.create(cuisine: "Mexican",restaurant_name: "3 Peppers",dish:"quesadill
 f3 = Food.create(cuisine: "French" ,restaurant_name:"C'est la vie",dish:"Escargot",image:"https://assets.epicurious.com/photos/57a8adfbb10b4fb03f234f37/master/pass/escargots-a-la-bourguignonne.jpg")
 
 Destination.all.each do |d|
-  DestinationActivity.create(destination_id: d.id, activity_id:[a1,a2,a3].sample(2))
+  acts = [a1.id,a2.id,a3.id]
+  acts = acts.sample(2)
+  DestinationActivity.create(destination_id: d.id, activity_id: acts[0])
+  DestinationActivity.create(destination_id: d.id, activity_id: acts[1])
 end
 
 Destination.all.each do |d|
-  DestinationFood.create(destination_id: d.id, food_id:[f1,f2,f3].sample(2))
+  foos = [f1.id,f2.id,f3.id]
+  foos = foos.sample(2)
+  DestinationFood.create(destination_id: d.id, food_id: foos[0])
+  DestinationFood.create(destination_id: d.id, food_id: foos[1])
 end
 
 puts "all done"
+
+
 
 

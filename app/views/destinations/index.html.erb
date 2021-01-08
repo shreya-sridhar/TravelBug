@@ -1,13 +1,11 @@
 <h2> Destinations <h2>
+
 <% @destinations.each do |destination| %>
     <ul>
         <h5><li><%=destination.location %></h5>
         <%= link_to destination_path(destination, trip_id:@trip.id,user_id:@user.id) do %>
-    <%= image_tag(Getdatum.get_photo(destination), :size => "260x180")%>
+    <%= image_tag(destination.image, :size => "260x180")%>
 <% end %></li>
     </ul>
 <%end%>
 <p><%= link_to 'Create Another Trip',new_user_trip_path(@user) %></p>
-
-
-         

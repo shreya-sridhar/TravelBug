@@ -25,11 +25,11 @@ class Users::TripsController < ApplicationController
     end 
 
     def create
-        @user = User.find(params[:user_id])
-        @trip = @user.trips.create(trips_params)
-        @trip.destination = nil
-        @user_id = trips_params[:user_id]
-        @destinations = Destination.all
+        @destination = Destination.find(params["trip"]["destination_id"].to_i)
+        @user = User.find(params[:user_id].to_i)
+        @trip = Trip.create(start_date: trips_params[:start_date],end_date: trips_params[:end_date],num_of_people: trips_params[:num_of_people], traveller_names: trips_params[:traveller_names], budget:trips_params[:budget],user_id:@user.id, destination_id:@destination.id)
+        @trip.save
+        
         redirect_to destinations_path(user_id:@user.id,trip_id:@trip.id)
     end
 
