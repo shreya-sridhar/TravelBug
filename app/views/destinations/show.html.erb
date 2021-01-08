@@ -1,10 +1,9 @@
 <h2>Destination: <%= @destination.location%><h2>
 <h3> Country: <%= @destination.country%> </h3> 
 <h3> Description: <%= @destination.description %></h3>
-<h4><%= link_to 'Go Back To All Destinations',destinations_path(trip_id:@trip.id) %></h4>
 <%= button_to "Add Destination", add_destination_path(destination:@destination.id,trip:@trip.id)%>
 <p> Average Trip Budgets For <%= @destination.location%> Trips :
- $<%= Trip.average_budget_by_destination(@destination.id) %></p>
+$<%= Trip.average_budget_by_destination(@destination.id) %></p>
 <p><%= image_tag(@destination.image, :size => "520x360") %></p>
 <h3>Activities</h3>
 <% @destination.activities.each do |activity| %>
@@ -17,6 +16,14 @@
 <ul>
     <%=link_to food.cuisine, food %>
 </ul>
+
+<h3><%= link_to 'Go Back To All Destinations',destinations_path(trip_id:@trip.id) %></h3>
+
+
+    <%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
+    <%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
+    <%= button_to 'Back', :back, class:"button3" %>
+    
 <%end%>
 
 
