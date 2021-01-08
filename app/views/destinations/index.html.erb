@@ -1,14 +1,16 @@
-<h2> Destinations <h2>
+<h1 class='homepage-h1'> Destinations <h1>
+
 <% @destinations.each do |destination| %>
     <ul>
-        <h5><li><%=destination.location %></h5>
+        <h5><li style="background-image:<%=destination.image %>;background-size: 260x180;"> <%= link_to destination.location, destination_path(destination, trip_id:@trip.id,user_id:@user.id) %></h5>
+
         <%= link_to destination_path(destination, trip_id:@trip.id,user_id:@user.id) do %>
-    <%= image_tag(destination.image, :size => "260x180")%>
-<% end %></li>
+            <%= image_tag(destination.image, :size => "260x180") %>
+        <% end %></li>
     </ul>
 <%end%>
-<p><%= link_to 'Create Another Trip',new_user_trip_path(@user) %></p>
 
-     
-
-         
+    <%= button_to 'Profile', user_path(@user), method: :get, class:"button2" %> 
+    <%= button_to 'Create Another Trip', new_user_trip_path(@user), method: :get, class:"button3" %> 
+    <%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
+    <%= button_to 'Back', :back, class:"button3" %>

@@ -1,11 +1,13 @@
 <div class="homepage_background" id='home'> 
 
     <div class="homepage">  
-        <h1><%= 'Welcome to TravelBug 🐞' %></h1>
-        <h4><%= "We're going on a trip, in our favorite rocket ship!" %></h4>
+        <h1 class='homepage-h1'><%= 'Welcome to TravelBug 🐞' %></h1>
+        <h4 class='homepage-h4'><%= "We're going on a trip, in our favorite rocket ship!" %></h4>
     </div>
+
     <div class="homepage_submit">
         <%= button_to 'Sign Up', new_user_path, method: :get, class:"button1" %> 
         <%= button_to 'Login', new_login_path, method: :get, class:"button1" %>
     </div>
+    
 </div>

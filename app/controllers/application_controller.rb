@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :find_user
-    before_action :require_login
+    before_action :require_login 
 
     def find_user
     # if logged_in is true, it gets saved to @logged_in variable, if user is logged in save that current user to @user variable 

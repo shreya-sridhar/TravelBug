@@ -7,27 +7,28 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
   </head>
 
   <body>
 
-    <% if flash[:errors]  %>
-        <% flash[:errors].each do |error| %>
-            <%= error %>
+    <script>
+        function goBack() {
+        window.history.back(); }
+    </script>
+
+    <div class='all_backgrounds'>
+        <% if flash[:errors]  %>
+            <% flash[:errors].each do |error| %>
+                <%= error %>
+            <% end %>
         <% end %>
-    <% end %>
 
-    <%= yield %>
+        <%= yield %>
+    </div>
 
-        <% if request.path != '/' %>
-        <%  if session[:user_id] %>
-            <%= button_to 'Logout', logout_path, method: :delete, class:"button1" %>  
-        <% else %>
-            <%= button_to 'Sign Up', new_user_path, method: :get, class:"button1" %> 
-        <% end %>
-    <% end %>
-
-    
   </body>
 </html>
