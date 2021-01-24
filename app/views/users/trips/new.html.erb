@@ -1,5 +1,3 @@
-<html>
-<body>
 <div class = 'triphome'>
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
@@ -13,28 +11,29 @@
     <%= f.date_field :start_date %> 
     
     <%= f.label :date, 'End Date:' %> 
-    <%= f.date_field :end_date %><br>
+    <%= f.date_field :end_date %>
 
     <%= f.label :num_of_people, 'No. of Travellers:' %>
     <%= f.text_field :num_of_people %><br>
 
     <%= f.label :traveller_names, 'Name of All Travellers:' %>
-    <%= f.text_field :traveller_names %><br>
+    <%= f.text_field :traveller_names %>
 
-    <%= f.label :budget , 'Budget (in USD):' %>
-    <%= f.text_field :budget, :value => '$' %><br>
+    <%= f.label :budget , 'Budget (in USD):' %> 
+    <%= f.text_field :budget, :value => '$' %>
 
     <%= f.collection_select :destination_id, @destinations, :id, :country %><br>
 
-    <br>
+    <%# <br> %>
     <%= f.submit "Submit"%>
 <% end %>
+<br><br><br><br>
+
+<img src=<%= @destination.image %> width = 500 height = 400 alt="placeholder 960" opacity=0.1/>
+
 
 </div>
-<p><%= image_tag("
-https://content.thriveglobal.com/wp-content/uploads/2018/05/christine-roy-343235-unsplash.jpg", :size => "780x540") %></p>
 
-</body>
-</head>
+
 
 

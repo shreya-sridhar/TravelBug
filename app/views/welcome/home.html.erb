@@ -1,13 +1,37 @@
-<div class="homepage_background" id='home'> 
+<nav class="navbar navbar-light bg-dark ">
+  <a class="navbar-brand text-center"><h5>TravelBug 🐞</h5></a>
+</nav>
 
-    <div class="homepage">  
-        <h1 class='homepage-h1'><%= 'Welcome to TravelBug 🐞' %></h1>
-        <h4 class='homepage-h4'><%= "We're going on a trip, in our favorite rocket ship!" %></h4>
+
+<div class="section">
+         <h1><%= 'Explore the World' %></h1><br>
+         
+        <button type="button" class="btn btn-outline-light">
+        <%= link_to 'Sign Up', new_user_path, method: :get %> 
+        </button><br>
+        <button type="button" class="btn btn-outline-light">
+        <%= link_to 'Login', new_login_path, method: :get %>
+        </button>
+        
+
+        <div class="video-container">
+            <div class="color-overlay"></div>
+            <video autoplay loop muted>
+                <source src="assets/merged.mp4" type="video/mp4">
+            </video>
+        </div>
+
     </div>
-    <%# <%= Getdatum.get_restaurants(Destination.first.city)  %>
-    <div class="homepage_submit">
-        <%= button_to 'Sign Up', new_user_path, method: :get, class:"button1" %> 
-        <%= button_to 'Login', new_login_path, method: :get, class:"button1" %>
-    </div>
-    
+
+
+  
+  
+
 </div>
+</div>
+<!-- /.container   -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+

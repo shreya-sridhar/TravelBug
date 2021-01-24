@@ -1,5 +1,3 @@
-<h1 class='homepage-h1'> Destinations <h1>
-
 <% @destinations.each do |destination| %>
     <ul>
         <h5><li style="background-image:<%=destination.image %>;background-size: 260x180;"> <%= link_to destination.location, destination_path(destination, trip_id:@trip.id,user_id:@user.id) %></h5>

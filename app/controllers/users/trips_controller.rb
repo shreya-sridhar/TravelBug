@@ -28,6 +28,7 @@ class Users::TripsController < ApplicationController
         @trip = @user.trips.new
         @users = User.all
         @destinations = Destination.all
+        @destination = Destination.find(params[:destination_id])
     end 
 
     def create

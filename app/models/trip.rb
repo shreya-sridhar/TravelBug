@@ -84,7 +84,7 @@ class Trip < ApplicationRecord
         dest_count = {}
         destinations.each do |d|
             if not dest_count.key?(d)
-                dest_count[d.location] = destinations.count(d)
+                dest_count[d] = destinations.count(d)
             end
         end
         dest_count.sort.to_h.first(4)
