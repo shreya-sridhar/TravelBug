@@ -1,17 +1,17 @@
-<nav class="navbar navbar-light bg-dark ">
-  <a class="navbar-brand text-center"><h5>TravelBug 🐞</h5></a>
-</nav>
-
-
-<div class="section">
-         <h1><%= 'Explore the World' %></h1><br>
-         
-        <button type="button" class="btn btn-outline-light">
+<nav class="navbar navbar-light">
+  <a class="navbar-brand me-auto text-center"><h5>TravelBug 🐞</h5></a>
+  <button type="button" class="btn btn-outline-light">
         <%= link_to 'Sign Up', new_user_path, method: :get %> 
         </button><br>
         <button type="button" class="btn btn-outline-light">
         <%= link_to 'Login', new_login_path, method: :get %>
         </button>
+</nav>
+
+
+<div class="section">
+         <h1><%= 'Explore the World' %></h1><br>
+    
         
 
         <div class="video-container">

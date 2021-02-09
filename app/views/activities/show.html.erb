@@ -1,13 +1,20 @@
-<h2><%= @activity.name%><h2>
-<h4> Description: <%= @activity.description %></h4>
-<h4> Price: $<%= @activity.price %></h4>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0UZckU_eK8heofiWpXTUYU-IpJo0KhnI&callback=initMap"
+  type="text/javascript"></script>
 
-<%= button_to '👍', like_path, method: :post, params: { :activity_id => @activity.id, emoji: '👍', user_id: @trip.user.id } %> | <p><%= @likes %></p>
+<div style ="text-align:center">
+<br><br>
+<h3><%= @title %></h3>
+<br><br>
 
-<%= button_to '👎', like_path, method: :post, params: { :activity_id => @activity.id, emoji: '👎', user_id: @trip.user.id } %> | <p><%= @dislikes %></p>
-<%= button_to 'Add Activity',add_activities_path(trip:@trip, activity:@activity, destination:@destination), method: :post %> 
-<p><%= image_tag @activity.image , :size => "780x540" %></p>
 
-<%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
 
+<%= link_to image_tag(@img_url, :size => 500)%>
+<br><br>
+<br><br>
+<h5><%= @text %></h5>
+<br><br>
+<h5>Address : <%= @address %></h5>
+</div>
+<br><br>
+<br><br>
 

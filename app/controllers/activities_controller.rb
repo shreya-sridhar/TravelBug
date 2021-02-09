@@ -1,12 +1,22 @@
 class ActivitiesController < ApplicationController
     def show
-        @trip = Trip.find(params[:trip_id].to_i)
-        @user = @trip.user
-        @activity = Activity.find(params[:id].to_i)
+        @place = params["value"][0]
+        if @place.include?("source")
+            @img_url = @place["source"]
+        end
+        @text = @place["text"]
+        @title = @place["title"].split(":")[1]
+        @name = @place["name"]
+        # "road"=>"Yeniçeriler Caddesi", "town"=>"Fatih", "state"=>"Marmara Bölgesi", "suburb"=>"Beyazıt Mahallesi", "country"=>"Türkiye", "postcode"=>"34126", "country_code"=>"tr",
+        @address = "nill"
+        # @place["road"]+" , "+@place["town"]+" , "+@place["suburb"]+" , "+@place["state"]+" , "+@place["country"]+" , "+@place["postcode"] 
     end 
 
     def index 
-        @activities = Activity.all
+        @trip = Trip.find(params[:id])
+        @destination = @trip.destination
+        @type = params[:type]
+        @places = Getdatum.get_places(@destination.lat,@destination.lon,@type)
     end
 
     def addactivities

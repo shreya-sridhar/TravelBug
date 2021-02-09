@@ -22,17 +22,16 @@
     <%= f.label :budget , 'Budget (in USD):' %> 
     <%= f.text_field :budget, :value => '$' %>
 
-    <%= f.collection_select :destination_id, @destinations, :id, :country %><br>
-
+    <%# <%= f.collection_select :destination_id, @destinations, :id, :country %>
+    <%= f.hidden_field :destination_id, :value => @destination.id %>
     <%# <br> %>
     <%= f.submit "Submit"%>
 <% end %>
 <br><br><br><br>
 
 <img src=<%= @destination.image %> width = 500 height = 400 alt="placeholder 960" opacity=0.1/>
-
-
 </div>
+<h1 class="things text-center">Things To Do</h2>
 
 
 

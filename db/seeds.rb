@@ -21,6 +21,8 @@ csv.each do |row|
   t = Destination.new
   t.country = row['country']
   t.location = row['location']
+  t.lat = row['lat']
+  t.lon = row['lng']
   t.image = Getdatum.get_photo(t)
   t.save
   puts "done"

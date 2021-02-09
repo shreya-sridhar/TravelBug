@@ -36,8 +36,7 @@ class Users::TripsController < ApplicationController
         @user = User.find(params[:user_id].to_i)
         @trip = Trip.create(start_date: trips_params[:start_date],end_date: trips_params[:end_date],num_of_people: trips_params[:num_of_people], traveller_names: trips_params[:traveller_names], budget:trips_params[:budget],user_id:@user.id, destination_id:@destination.id)
         @trip.save
-        
-        redirect_to destinations_path(user_id:@user.id,trip_id:@trip.id)
+        redirect_to destination_path(@destination.id,{user_id:@user.id,trip_id:@trip.id})
 
         # @user = User.find(params[:user_id])
         # @trip = @user.trips.create(trips_params)

@@ -1,22 +1,130 @@
+<div class="section">
+        <h1><%= @destination.location%>,<%= @destination.country%><br><br><br><br><br></h1>
+        <h3><br><br><br><br><br><br><br><br><br><br><br><br><br><button type="button" class="btn btn-outline-dark"><a href="#anchor">Things to Do</a></button></h3>
+        <div class="video-container">
+            <div class="color-overlay"></div>
+            <video autoplay loop muted>
+                <source src="/assets/merged.mp4" type="video/mp4">
+            </video>
+        </div>
+</div>
 
-<h2><%= @destination.location%><h2>
-<h3><%= @destination.country%></h3>
-<h4><%= link_to 'Go Back To All Destinations',destinations_path(trip_id:@trip.id) %></h4>
-<%= button_to "Add Destination", add_destination_path(destination:@destination.id,trip:@trip.id)%>
-<p> Average Trip Budgets For <%= @destination.location%> Trips :
- $<%= Trip.average_budget_by_destination(@destination.id) %></p>
- <h3>Activities</h3>
-<% @destination.activities.each do |activity| %>
-<ul>
-    <%=link_to activity.name, activity_path(activity,trip_id:@trip.id) %>
-</ul>
-<%end%>
+<a name="anchor">
+  <div class="content">
+  <div class="grid">
+    <figure  id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"architecture",id:@trip.id}) %> %><img src="https://www.roadaffair.com/wp-content/uploads/2017/12/bruges-brussels-shutterstock_576354439.jpg")</a> 
+      <figcaption>
+        <div>
+          <h2>architecture</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
 
-<h3><%=link_to "Dining", destination_foods_path(@destination) %></h3>
- <p><%= image_tag(@destination.image, :size => "780x540") %></p>
+  <div class="content">
+  <div class="grid">
+    <figure  id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"cultural",id:@trip.id}) %> %><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKML62T9JhzNYcIO-Yr8832BceXkxJm20K1Q&usqp=CAU")</a> 
+      <figcaption>
+        <div>
+          <h2>cultural</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
 
-    <%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
+  <div class="content">
+  <div class="grid">
+    <figure id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"historic",id:@trip.id}) %> %><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Tatev_Monastery_from_a_distance.jpg/1200px-Tatev_Monastery_from_a_distance.jpg")</a> 
+      <figcaption>
+        <div>
+          <h2>historic</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
+  
+<div class="content">
+  <div class="grid">
+    <figure id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"natural",id:@trip.id}) %> %><img src="https://2.bp.blogspot.com/-m_dejj1SwfM/WQyvE9mOvNI/AAAAAAAACd0/Uzlgu0USrykZXdsgr1Jg71hZrxVGllApgCLcB/s400/Nature%2BTourism%2BBandung.jpg")</a> 
+      <figcaption>
+        <div>
+          <h2>Natural</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
+  <div class="content">
+  <div class="grid">
+    <figure id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"religious",id:@trip.id}) %> %><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpBGDCiB_Ivo5_sw4mIYGwPWEO4LhmxqgXQQ&usqp=CAU")</a> 
+      <figcaption>
+        <div>
+          <h2>Religious</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
+  <div class="content">
+  <div class="grid">
+    <figure id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"amusements",id:@trip.id}) %> %><img src="https://3spxpi1radr22mzge33bla91-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/iStock-470689283.jpg")</a> 
+      <figcaption>
+        <div>
+          <h2>Amusements</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
+  
+
+
+
+<div class="content">
+  <div class="grid">
+    <figure  id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"accomodations",id:@trip.id}) %> %><img src="https://exp.cdn-hotels.com/hotels/55000000/54010000/54004800/54004723/470ec6b1_z.jpg?impolicy=fcrop&w=500&h=333&q=high")</a> 
+      <figcaption>
+        <div>
+          <h2>Accomodations</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
+  <div class="content">
+  <div class="grid">
+    <figure  id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"foods",id:@trip.id}) %> %><img src="https://www.exploregeorgia.org/sites/default/files/styles/slideshow_large/public/legacy_images/the-dillard-house-1411422058.jpg?itok=qN6H6Y34")</a> 
+      <figcaption>
+        <div>
+          <h2>Restaurants</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
+</a>
+
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+
+
+ <%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
     <%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
     <%= button_to 'Back', :back, class:"button3" %>
 
 
+
+
+
+  
