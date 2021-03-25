@@ -18,8 +18,12 @@ class DestinationsController < ApplicationController
         @trip = Trip.find(params[:trip].to_i)
         @user = @trip.user
         @trip.update_attribute(:destination_id, @destination.id)
+        # redirect_to user_trip_path(user_id: @user.id, id: @trip.id,destination_id: @destination.id)
+
+
         redirect_to user_trip_path(user_id: @user.id, id: @trip.id)
     end
+
 
 end
 

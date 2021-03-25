@@ -1,6 +1,20 @@
-<h2> Activities <h2>
-<% @activities.each do |activity| %>
-    <ul>
-        <h5><li><%= link_to activity.name, activity %></li></h5>
-    </ul>
+
+<h2 class = "dest_name"><%= @type.capitalize %><h2>
+
+<% @places.each do |place,value| %>
+<div class="content">
+  <div class="grid">
+    <figure class="effect-lily">
+      <%= link_to image_tag(value[0]["source"], :size => 249),
+ activity_path(place,{value:value}) %>
+      <figcaption>
+        <div>
+          <h2><%= place %></h2> 
+        </div>
+         <%= link_to image_tag(value[0]["source"]),activity_path(place,{value:value})  %>
+      </figcaption>			
+    </figure>
+  </div>
 <%end%>
+
+

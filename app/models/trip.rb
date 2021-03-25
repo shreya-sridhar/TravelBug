@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :destination
   validate :trip_date
-  validates_presence_of :start_date, :end_date, :num_of_people, :traveller_names, :budget, :destination_id
+  validates_presence_of :start_date, :end_date, :num_of_people, :traveller_names, :budget
 
     def trip_date
         if self.start_date.to_i < DateTime.now.to_i
@@ -33,18 +33,17 @@ class Trip < ApplicationRecord
     end
 
     def self.average_trip_budget
-        budgets = Trip.all.map{|t| t.budget}.compact
-        avg_budget = budgets.sum/budgets.count
+            budgets = Trip.all.map{|t| t.budget}.compact
+            if budgets.first
+                avg_budget = budgets.sum/budgets.count
+            end
     end
 
     def self.average_budget_by_destination(destination)
         trips = Trip.where(destination_id: destination)
-        if !trips[0] == nil 
+        if trips.first
             budgets = trips.all.map{|t| t.budget}.compact
             avg_budget = budgets.sum/budgets.count
-            return avg_budget 
-        else 
-            return 'No trips to this destination yet'
         end
     end
 
@@ -80,17 +79,16 @@ class Trip < ApplicationRecord
 
     end
 
-    # def featured_destinations
-    #     destinations = Trip.all.map{|t| t.destination}.compact 
-    #     dest_count = {}
-    #     destination.each do |d|
-    #         if not dest_count.key?(d)
-    #             dest_count[d] = destination.count(d)
-    #         end
-    #     end
-    #     byebug
-    #     dest_count.sort.to_h.first(4)
-    # end
+    def self.featured_destinations
+        destinations = Trip.all.map{|t| t.destination}.compact 
+        dest_count = {}
+        destinations.each do |d|
+            if not dest_count.key?(d)
+                dest_count[d] = destinations.count(d)
+            end
+        end
+        dest_count.sort.to_h.first(4)
+    end
 
 end
 

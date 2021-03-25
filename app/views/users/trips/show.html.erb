@@ -1,7 +1,6 @@
 <h2>Trip Itinerary & Details </h2>
 <h3> Name : <%= @user.name %></h3>
 <h3> Destination : <%= @trip.destination.location%></h3>
-
 <h3> Itinerary :</h3>
 <table class="table table-striped">
 <tbody>
@@ -16,8 +15,8 @@
 
 <h4> Budget : $<%= @trip.budget %></h4>
 <h4> Total Expense : $<%= @trip.total_expense %></h4>
-<%= link_to 'Back',destination_path(@trip.destination,trip_id:@trip.id) %> 
+<%= link_to 'Continue Making Itinerary',destination_path(@trip.destination,trip_id:@trip.id) %> 
+<%= link_to 'View All User Trips', user_trips_path(@user) %>
 <p><%= image_tag("https://s3.envato.com/files/247495120/20180524-Capture0002-2-Edit.jpg") %></p>
-
 
 

@@ -3,6 +3,11 @@ class UsersController < ApplicationController
     skip_before_action :require_login,  :only => [:create, :new]
 
     def show 
+        @destinations = Destination.all.sort_by{|d| d.location} 
+        @countries = []
+        @destinations.each do |d|
+            @countries << d.country 
+        end
     end
 
     def index
