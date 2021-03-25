@@ -13,7 +13,7 @@
 </tbody>
 </table>
 
-<h4> Budget : <%= @trip.budget %></h4>
+<h4> Budget : $<%= @trip.budget %></h4>
 <h4> Total Expense : $<%= @trip.total_expense %></h4>
 <%= link_to 'Continue Making Itinerary',destination_path(@trip.destination,trip_id:@trip.id) %> 
 <%= link_to 'View All User Trips', user_trips_path(@user) %>
