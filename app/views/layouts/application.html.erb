@@ -18,6 +18,20 @@
 
   </head>
   <body>
+ <nav class="navbar transparent navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">TravelBug 🐞</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#"><%= link_to 'New Trip', new_user_trip_path(@user), method: :get, class:"button3" %></a>
+      <a class="nav-item nav-link" href="#"> <%= link_to 'Edit Profile', edit_user_path(@user), method: :get, class:"button2" %>  </a>
+      <a class="nav-item nav-link" href="#"> <%= link_to 'View All Trips', user_trips_path(@user), method: :get, class:"button3" %></a>
+      <a class="nav-item nav-link disabled" href="#"> <%= link_to 'Logout', logout_path, method: :delete, class:"button2" %> </a>
+    </div>
+  </div>
+</nav>
         <%= yield %> 
   </body>
  

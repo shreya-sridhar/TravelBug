@@ -6,10 +6,21 @@ class ActivitiesController < ApplicationController
         end
         @text = @place["text"]
         @title = @place["title"].split(":")[1]
-        @name = @place["name"]
-        # "road"=>"Yeniçeriler Caddesi", "town"=>"Fatih", "state"=>"Marmara Bölgesi", "suburb"=>"Beyazıt Mahallesi", "country"=>"Türkiye", "postcode"=>"34126", "country_code"=>"tr",
-        @address = "nill"
-        # @place["road"]+" , "+@place["town"]+" , "+@place["suburb"]+" , "+@place["state"]+" , "+@place["country"]+" , "+@place["postcode"] 
+        @name = @place["name"]? @place["name"] : ""
+        @road = @place["road"]? @place["road"] : ""
+        @house = @place["house"]? @place["house"] : ""
+        @county = @place["county"]? @place["county"] : ""
+        @town = @place["town"]? @place["town"] : ""
+        @state = @place["state"]? @place["state"] : ""
+        @suburb = @place["suburb"]? @place["suburb"] : ""
+        @country = @place["country"]? @place["country"] : ""
+        @postcode = @place["postcode"]? @place["postcode"] : ""
+        @address = @house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country+", " + @postcode
+        results = Geocoder.search(@road)
+        @lat = results.first.coordinates[0]
+        @lng = results.first.coordinates[1]
+        # @url = "https://www.google.com/maps/embed/v1/place?q=#{@lat},#{@lng}&amp;key=AIzaSyBiMwcpHSSbNNyAXINnOD42f8FjzrWX2W0"
+        @url = "https://www.google.com/maps/embed/v1/place?q=40.7127837,-74.0059413&amp;key=AIzaSyBiMwcpHSSbNNyAXINnOD42f8FjzrWX2W0"
     end 
 
     def index 
@@ -34,5 +45,4 @@ class ActivitiesController < ApplicationController
         redirect_to user_trip_path(@user,@trip)
     end
 end
-
 

@@ -1,4 +1,6 @@
-@import "font-awesome";
+/*
+ *= require font-awesome
+ */
 
 a{
     color:white;
