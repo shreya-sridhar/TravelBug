@@ -16,11 +16,9 @@ class ActivitiesController < ApplicationController
         @country = @place["country"]? @place["country"] : ""
         @postcode = @place["postcode"]? @place["postcode"] : ""
         @address = @house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country+", " + @postcode
-        results = Geocoder.search(@road)
+        results = Geocoder.search(@house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country)
         @lat = results.first.coordinates[0]
         @lng = results.first.coordinates[1]
-        # @url = "https://www.google.com/maps/embed/v1/place?q=#{@lat},#{@lng}&amp;key=AIzaSyBiMwcpHSSbNNyAXINnOD42f8FjzrWX2W0"
-        @url = "https://www.google.com/maps/embed/v1/place?q=40.7127837,-74.0059413&amp;key=AIzaSyBiMwcpHSSbNNyAXINnOD42f8FjzrWX2W0"
     end 
 
     def index 

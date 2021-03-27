@@ -1,3 +1,7 @@
+require 'net/http'
+require 'open-uri'
+require 'json'
+
 class Users::TripsController < ApplicationController
     before_action :find_trip, only: [:edit, :itinerary]
 
@@ -7,30 +11,17 @@ class Users::TripsController < ApplicationController
         if params[:destination]
             @destination = Destination.find(params[:destination_id].to_i)
             @trip.destination = @destination
-        end 
-        #redirect_to user_trip_path(user_id: @user.id, trip_id: @trip.id, activity_array: @activity_array)
+        end
     end
 
     def index 
-    #running into issues saying page redirected too many times
         @user = User.find(params[:user_id])
-
-        # @trips = Trip.where(user_id:@user.id)
-
-        # # if @trips
-        #     render user_trips_path(@user)
-        # # else
-        # #     flash[:errors] = ["No trips to view. Please click on New Trip to create one."]
-        # # end
-
         @trips = @user.trips
-
         if @trips.length == 0
             flash[:errors] = ["No trips to view. Please click on New Trip to create one."]
             redirect_to user_path(@user)
         end
     end 
-
 
     def new
         @user = User.find(params[:user_id])
@@ -38,6 +29,14 @@ class Users::TripsController < ApplicationController
         @users = User.all
         @destinations = Destination.all
         @destination = Destination.find(params[:destination_id])
+        # url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+        # url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+        # uri = URI.parse(url)
+        # response = Net::HTTP.get_response(uri)
+        # response.body
+        # @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+        # @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+        # @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
     end 
 
     def create

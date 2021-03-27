@@ -9,12 +9,12 @@ Rails.application.routes.draw do
 
   get '/countries/:name', to: 'countries#show', as: 'countries'
   get '/users/stats', to: 'users#stats', as: 'stats'
+  get '/packages/:name', to: 'packages#show', as: 'packages'
   
   root to: 'welcome#home'
   resources :users do
     resources :trips, controller: 'users/trips', controller: 'users/trips'
   end
-
 
   post 'activities/:trip', to: 'activities#addactivities', as: 'add_activities'
   post 'destinations/:trip', to: 'destinations#adddestination', as: 'add_destination'
