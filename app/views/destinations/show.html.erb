@@ -3,9 +3,37 @@
         <h3><br><br><br><br><br><button type="button" class="btn btn-outline-dark"><a href="#anchor">Things to Do</a></button></h3>
         <div class="video-container">
             <div class="color-overlay"></div>
-            <video autoplay loop muted>
-                <source src="/assets/merged.mp4" type="video/mp4">
-            </video>
+            
+
+            <video width='100%' id="myVideo" controls autoplay>
+    <source src=<%= @video1 %> id="mp4Source" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script type='text/javascript'>
+   var count=1;
+   var player=document.getElementById('myVideo');
+   var mp4Vid = document.getElementById('mp4Source');
+   player.addEventListener('ended',myHandler,false);
+
+   function myHandler(e)
+   {
+
+      if(!e) 
+      {
+         e = window.event; 
+      }
+      count++;
+      // if (count<4)
+      // {
+      let vid = "@video"+count
+      $(mp4Vid).attr('src', vid);
+      player.load();
+      player.play();
+      // }
+   }
+
+</script>
         </div>
 </div>
 

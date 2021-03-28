@@ -201,7 +201,7 @@ class PackagesController < ApplicationController
                 Next , you will be exploring the New Town of Georgian.After the tour, board a bus and visit the Royal Mile, Palace of Holyrood house and the mighty Edinburgh Castle.
                 
                 As the tour ends, you can savour some scottish delights at the local restaurants and later, head back to the hotel for an overnight stay.","After having breakfast, check-out from the hotel and get dropped off at the airport for your return flight back home with a bagful of wonderful memories."]
-            url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=London&image_type=photo&pretty=true&page=1&per_page=3"
+            url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=London&image_type=photo&pretty=true&page=1&safesearch=true&per_page=3"
             uri = URI.parse(url)
             response = Net::HTTP.get_response(uri)
             response.body

@@ -29,7 +29,7 @@ class Users::TripsController < ApplicationController
         @users = User.all
         @destinations = Destination.all
         @destination = Destination.find(params[:destination_id])
-        url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=6"
+        url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&safesearch=true&page=1&per_page=6"
         uri = URI.parse(url)
         response = Net::HTTP.get_response(uri)
         response.body
