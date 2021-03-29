@@ -4,7 +4,7 @@ require 'json'
 class Getdatum < ApplicationRecord
 
   def self.get_place_data(lat,lon,type)
-    url = "https://api.opentripmap.com/0.1/en/places/radius?radius=10000&lon=" + lon.to_s + "&lat="+lat.to_s+"&kinds="+type+"&rate=3&format=json&apikey=5ae2e3f221c38a28845f05b616ae2d304541d9f690f8d882b9ee73f4"
+    url = "https://api.opentripmap.com/0.1/en/places/radius?radius=10000&lon=" + lon.to_s + "&lat="+lat.to_s+"&kinds="+type+"&rate=3&format=json&apikey=5ae2e3f221c38a28845f05b616ae2d304541d9f690f8d882b9ee73f4&limit=20"
     uri = URI.parse(url)
     response = Net::HTTP.get_response(uri)
     response.body

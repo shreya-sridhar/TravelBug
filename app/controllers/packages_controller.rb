@@ -464,17 +464,111 @@ class PackagesController < ApplicationController
         @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
         @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
         @package = "Egypt"
-    else
-        @title = []
-        @body = []
-        
-        @image1  
-        @image2  
-        @image3 
-
+        else 
+            @destination = Destination.find_by(location: params[:name])
+            @restaurants = Getdatum.get_places(@destination.lat,@destination.lon,"foods").keys
+            @nature = Getdatum.get_places(@destination.lat,@destination.lon,"natural").keys
+            @hotels = Getdatum.get_places(@destination.lat,@destination.lon,"accomodations").keys
+            @architecture = Getdatum.get_places(@destination.lat,@destination.lon,"historic").keys
+            if params[:days]=="15"
+                    @title = Array.new
+                    @body = Array.new
+                    i = 0
+                    url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                    uri = URI.parse(url)
+                    response = Net::HTTP.get_response(uri)
+                    response.body
+                    @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                    @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                    @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                    @package = @destination.location
+                    while i < 15
+                        @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                        i = i+1;
+                    end
+                elsif params[:days]=="10"
+                    @title = Array.new
+                    @body = Array.new
+                    i = 0
+                    url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                    uri = URI.parse(url)
+                    response = Net::HTTP.get_response(uri)
+                    response.body
+                    @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                    @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                    @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                    @package = @destination.location
+                    while i < 10
+                        @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                        i = i+1;
+                    end
+                elsif params[:days]=="8"
+                        @title = Array.new
+                        @body = Array.new
+                        i = 0
+                        url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                        uri = URI.parse(url)
+                        response = Net::HTTP.get_response(uri)
+                        response.body
+                        @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                        @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                        @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                        @package = @destination.location
+                        while i < 8
+                            @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                            i = i+1;
+                        end
+                    elsif params[:days]=="6"
+                            @title = Array.new
+                            @body = Array.new
+                            i = 0
+                            url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                            uri = URI.parse(url)
+                            response = Net::HTTP.get_response(uri)
+                            response.body
+                            @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                            @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                            @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                            @package = @destination.location
+                            while i < 6
+                                @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                                i = i+1;
+                            end
+                        elsif params[:days]=="5"
+                                @title = Array.new
+                                @body = Array.new
+                                i = 0
+                                url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                                uri = URI.parse(url)
+                                response = Net::HTTP.get_response(uri)
+                                response.body
+                                @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                                @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                                @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                                @package = @destination.location
+                                while i < 5
+                                    @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                                    i = i+1;
+                                end
+                        else
+                            @title = Array.new
+                            @body = Array.new
+                            i = 0
+                            url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                            uri = URI.parse(url)
+                            response = Net::HTTP.get_response(uri)
+                            response.body
+                            @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                            @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                            @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                            @package = @destination.location
+                            while i < 7
+                                @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                                i = i+1;
+                            end         
+            end
     end
-    
-
 end
 end 
+
 

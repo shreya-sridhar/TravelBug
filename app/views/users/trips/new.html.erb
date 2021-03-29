@@ -88,7 +88,7 @@
                         <div class="row">
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                   <a href="<%= packages_path({:name => @destination.location, :days => 15}) %>">
+                                   <a href="<%= packages_path({:name => @destination.location, :days => "15"}) %>">
                                     <img class="img-fluid" alt="100%x280" src=<%= @image6 %>>
                                     <div class="card-body">
                                         <h4 class="card-title">15D/14N Package</h4>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                <a href="<%= packages_path({:name => @destination.location, :days => 10}) %>">
+                                <a href="<%= packages_path({:name => @destination.location, :days => "10"}) %>">
                                     <img class="img-fluid" alt="100%x280" src= <%= @image1 %> >
                                     <div class="card-body">
                                         <h4 class="card-title">10D/9N Package</h4>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                <a href="<%= packages_path({:name => @destination.location, :days => 8}) %>">
+                                <a href="<%= packages_path({:name => @destination.location, :days => "8"}) %>">
                                     <img class="img-fluid" alt="200x280" src=<%= @image4 %>>
                                     <div class="card-body">
                                         <h4 class="card-title">8D/7N Package</h4>
@@ -126,7 +126,7 @@
 
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                <a href="<%= packages_path({:name => @destination.location, :days => 6}) %>">
+                                <a href="<%= packages_path({:name => @destination.location, :days => "6"}) %>">
                                     <img class="img-fluid" alt="200x280" src=<%= @image3 %>>
                                     <div class="card-body">
                                         <h4 class="card-title">6D/5N Package</h4>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                <a href="<%= packages_path({:name => @destination.location, :days => 5}) %>">
+                                <a href="<%= packages_path({:name => @destination.location, :days => "5"}) %>">
                                     <img class="img-fluid" alt="200x280" src=<%= @image5 %>>
                                     <div class="card-body">
                                         <h4 class="card-title">Best of <%= @destination.location %></h4>
@@ -148,7 +148,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="card">
-                                <a href="<%= packages_path({:name => @destination.location, :days => 0}) %>">
+                                <a href="<%= packages_path({:name => @destination.location, :days => "0"}) %>">
                                     <img class="img-fluid" alt="200x280" src=<%= @image2 %>>
                                     <div class="card-body">
                                         <h4 class="card-title"><%=@destination.location%> Escapade</h4>

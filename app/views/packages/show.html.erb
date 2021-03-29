@@ -44,13 +44,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title"><%= @title.length %>- Day Itinerary</h6>
+                    <h6 class="card-title"><%= @body.length %>- Day Itinerary</h6>
                     <div id="content">
-                    <% @title.each_with_index do |title,index| %>
+                    <% @body.each_with_index do |body,index| %>
                         <ul class="timeline">
                             <li class="event" data-date="Day <%= index.to_i + 1 %>">
-                                <p><%= title %></p>
-                                <p><%= @body[0] %></p>
+                                <p><%= @title[index] %></p>
+                                <p><%= body %></p>
                             </li>
                         </ul>
                     <% end %>
