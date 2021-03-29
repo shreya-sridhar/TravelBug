@@ -686,3 +686,9 @@ body{margin-top:20px;}
     right: -55.8px;
 }
 
+video::-webkit-media-controls-timeline {
+  display: none;
+}
+
+
+

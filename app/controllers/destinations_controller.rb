@@ -8,9 +8,13 @@ class DestinationsController < ApplicationController
         uri = URI.parse(url)
         response = Net::HTTP.get_response(uri)
         response.body
-        @video1 = JSON.parse(response.body)["hits"][0]["videos"]["medium"]["url"]
-        @video2 = JSON.parse(response.body)["hits"][1]["videos"]["medium"]["url"]
-        @video3 = JSON.parse(response.body)["hits"][2]["videos"]["medium"]["url"]
+        url1 = "https://pixabay.com/api/videos/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=travel&pretty=true&page=1&per_page=3&safesearch=true"
+        uri1 = URI.parse(url1)
+        response1 = Net::HTTP.get_response(uri1)
+        response1.body
+        @video1 = JSON.parse(response.body)["hits"][0] ? JSON.parse(response.body)["hits"][0]["videos"]["medium"]["url"]: JSON.parse(response1.body)["hits"][0]["videos"]["medium"]["url"]
+        @video2 = JSON.parse(response.body)["hits"][1] ? JSON.parse(response.body)["hits"][1]["videos"]["medium"]["url"]: JSON.parse(response1.body)["hits"][1]["videos"]["medium"]["url"]
+        @video3 = JSON.parse(response.body)["hits"][2] ? JSON.parse(response.body)["hits"][2]["videos"]["medium"]["url"]: JSON.parse(response1.body)["hits"][2]["videos"]["medium"]["url"]
     end
 
     def index

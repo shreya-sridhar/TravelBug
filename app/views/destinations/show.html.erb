@@ -3,38 +3,34 @@
         <h3><br><br><br><br><br><button type="button" class="btn btn-outline-dark"><a href="#anchor">Things to Do</a></button></h3>
         <div class="video-container">
             <div class="color-overlay"></div>
-            
+            <div id="videoContainer" style="display:inline-block"></div>
+            <video id="example_video_1" autoplay muted controls="none" width="100%" onended="run()">
+              <source src=<%= @video1 %> type='video/mp4' />
+            </video>
+        </div>    
 
-            <video width='100%' id="myVideo" controls autoplay>
-    <source src=<%= @video1 %> id="mp4Source" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-
-<script type='text/javascript'>
-   var count=1;
-   var player=document.getElementById('myVideo');
-   var mp4Vid = document.getElementById('mp4Source');
-   player.addEventListener('ended',myHandler,false);
-
-   function myHandler(e)
-   {
-
-      if(!e) 
-      {
-         e = window.event; 
-      }
-      count++;
-      // if (count<4)
-      // {
-      let vid = "@video"+count
-      $(mp4Vid).attr('src', vid);
-      player.load();
-      player.play();
-      // }
-   }
-
+<script>
+videoPlayer = document.getElementById("example_video_1");
+var nextVideo = "<%= @video1 %>"
+function run(){
+        if (nextVideo == "<%= @video1%>")
+          {
+            nextVideo = "<%= @video2%>"
+          } 
+        else if (nextVideo == "<%= @video2%>")
+          {
+            nextVideo = "<%= @video3%>"
+          }
+        else if (nextVideo == "<%= @video3%>")
+          {
+            nextVideo = "<%= @video1%>"
+          }
+        videoPlayer.src = nextVideo;
+        videoPlayer.play=autoplay;
+        videoPlayer.controls=controls;
+   };
 </script>
-        </div>
+
 </div>
 
 <a name="anchor">
@@ -110,10 +106,6 @@
       </figcaption>			
     </figure>
   </div>
-
-  
-
-
 
 <div class="content">
   <div class="grid">

@@ -464,6 +464,14 @@ class PackagesController < ApplicationController
         @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
         @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
         @package = "Egypt"
+    else
+        @title = []
+        @body = []
+        
+        @image1  
+        @image2  
+        @image3 
+
     end
     
 
