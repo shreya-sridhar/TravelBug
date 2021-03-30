@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
     def show
+        @trip = Trip.find(params[:trip_id])
         @place = params["value"][0]
         if @place.include?("source")
             @img_url = @place["source"]

@@ -6,15 +6,16 @@
   <div class="grid">
     <figure class="effect-lily">
       <%= link_to image_tag(value[0]["source"], :size => 249),
- activity_path(place,{value:value}) %>
+ activity_path(place,{value:value, trip_id: @trip.id}) %>
       <figcaption>
         <div>
           <h2><%= place %></h2> 
         </div>
-         <%= link_to image_tag(value[0]["source"]),activity_path(place,{value:value})  %>
+         <%= link_to image_tag(value[0]["source"]),activity_path(place,{value:value, trip_id: @trip.id})  %>
       </figcaption>			
     </figure>
   </div>
 <%end%>
+
 
 

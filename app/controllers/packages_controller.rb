@@ -52,9 +52,9 @@ class PackagesController < ApplicationController
             uri = URI.parse(url)
             response = Net::HTTP.get_response(uri)
             response.body
-            # @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
-            # @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
-            # @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+            @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+            @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+            @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
             @package = "Tanzania"
         elsif (params[:name] == "Europe")
             @title = ["Paris (France)","Paris – Guided City Orientation Tour - Eiffel Tower visit 2nd Level - River Seine Cruise","Paris – Zurich (Switzerland)"," Zurich - Mt. Titlis, Ice Flyer, snow park and Lucerne Orientation - Zurich","Zurich - Excursion to Jungfrau - Top of Europe/Interlaken - Zurich","Zurich –Rhine Falls - Vaduz (Liechtenstein) – Wattens - Innsbruck (Austria)"," Innsbruck – Venice Mestre/Padova (Italy)","Venice (Airport)"]
