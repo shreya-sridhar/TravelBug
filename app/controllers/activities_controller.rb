@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
     def show
+        trips = Trip.all
         @trip = Trip.find(params[:trip_id])
         @place = params["value"][0]
         if @place.include?("source")
