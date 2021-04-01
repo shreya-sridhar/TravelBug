@@ -2,14 +2,15 @@ class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :destroy]
     skip_before_action :require_login,  :only => [:create, :new]
 
-    def show 
-        @destinations = Destination.all.sort_by{|d| d.location} 
-        byebug
+    def show
+        @session = 1
+        session[:city] = params[:city]
         if session[:city]
             @destinations = Destination.where("location LIKE ?", "%#{session[:city].titleize}%")
-          else
+            @session = nil
+        else
             @destinations = Destination.all.sort_by{|d| d.location}
-          end
+        end
         @countries = []
         @destinations.each do |d|
             @countries << d.country 
@@ -72,3 +73,5 @@ private
     end
 
 end
+
+

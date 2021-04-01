@@ -1,16 +1,16 @@
 <div class = "bg">
 <img class = "center-fit" src="https://i.pinimg.com/originals/49/94/b1/4994b16f608133aac907d61b9976b6dc.png" width='100%' alt="placeholder 960" opacity=1.0 class="img-responsive"/>
-</div>
 
-<nav class="navbar1 navbar-light bg-light" onchange="this.form.submit()">
+
+<nav class="navbar1 navbar-light bg-light">
   <form class="form-inline d-inline w-100" action= 1 method="GET" >
   <input class="form-control-lg d-inline w-100" placeholder="Search City" aria-label="Search" type="text" name="city" >
-  <input type="submit" value="Search for Player">
-
-  <div class = "bg-text"><h4><a href="anchor"><button class ="btn btn-outline-light btn-lg"><%= link_to "Choose City", anchor: "wall" %></a></h4></button></div>
-</form>
+    </form>
 </nav>
+ <div class = "bg-text"><h4><a href="anchor"><input type="submit" value="Search City"></a></h4></div>
+</div>
 
+<% if @session %>
 <section class="pt-5 pb-5">
   <div class="container">
     <div class="row">
@@ -111,6 +111,7 @@
     </div>
 </div>
 </section>
+<% end %>
 
 <a id="wall">
 <% @destinations.each do |destination| %>
@@ -130,20 +131,114 @@ new_user_trip_path(@user, {:destination_id => destination.id } ) %>
   </div>
 <% end %>
 </a>
-
 </main>
-     <h1> <%= @user.name %>'s Main Account </h1>
-        <p>Age: <%= @user.age %></p>
-        <p> Hometown: <%= @user.hometown %></p>
 
-        <div class='user_buttons'>
-            
-            <%= link_to 'Delete Profile', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class:"button3" %>
-            <%= link_to 'More Info', stats_path, method: :get, class:"button2" %> 
-           
-           
-        </div>
+
+
+<br><br>
+<br><br><br><br><br><br>
 <br><br><br><br><br><br>
 
 
- 
+ <% if !@session %>
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="mb-3">Paradise On Earth</h3>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators3" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="col-12">
+        <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                            <a href="<%= packages_path({:name => "Tanzania"}) %>">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--oZ-IsAOW--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/336/659/original/1597060847_shutterstock_1019833633.jpg.jpg?1597060847">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Tanzania</h4>
+                                        <p class="card-text">Tanzania can be considered as a canvas of natural beauty. It happens to be one of the most ethnically, religiously, and linguistically diverse countries in Africa. </p>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                 <a href="<%= packages_path({:name => "Europe"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--nILwhnWS--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/331/427/original/1594886085_Mt._Titlis_1.jpg.jpg?1594886075">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Europe</h4>
+                                        <p class="card-text">Enjoy a week in Europe with your family and explore the 5 countries in 8 days with our Europe tour package for family.</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "London & Edinburgh"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--kosMaYTg--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/331/072/original/1594788550_Madame_Tussauds_Wax_Museum.jpg.jpg?1594788550">
+                                    <div class="card-body">
+                                        <h4 class="card-title">London & Edinburgh </h4>
+                                        <p class="card-text">With supportincg text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "Australia"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--lAtvieK4--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/173/446/original/1570610472_0.jpg.jpg?1570610472">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Australia</h4>
+                                        <p class="card-text">Explore the best of Sydney.</p>
+                                    </div>
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "South Africa"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--MuOcvpI3--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/334/837/original/1595846778_Cape_Point.jpg.jpg?1595846778">
+                                    <div class="card-body">
+                                        <h4 class="card-title">South Africa</h4>
+                                        <p class="card-text">South Africa is considered to be one of the most geographically varied counties in the world that ranges from fertile plains to wide-open savannah</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "Egypt"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--1OHFqJYq--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/334/728/original/1595842233_Khan_El-Khalili_Bazaar.jpg.jpg?1595842233">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Egypt</h4>
+                                        <p class="card-text">The land of the Pharaohs, Pyramids, ancient Kingdoms and rich heritage, this is Egypt where you and your loved ones can spend a beautiful 7-day vacation </p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<% end %>
