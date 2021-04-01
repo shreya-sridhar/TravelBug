@@ -1,15 +1,23 @@
-function hello(name) {
-    let greeting = "Hello, " + name + "!";
-    console.log(greeting);
-    alert(greeting);
-}
+// function hello(name) {
+//     let greeting = "Hello, " + name + "!";
+//     console.log(greeting);
+//     alert(greeting);
+// }
 
-document.addEventListener('turbolinks:load', () => {
-    const clickButton = document.getElementById("greet-user-button");
-    clickButton.addEventListener('click', (event) => {
-        hello('JavaScript')
-    });
-});
+
+
+
+// window.addToFav = function(){
+//     console.log("greeting1");
+//     alert("greeting1");
+// }
+
+// window.addToItinerary = function(){
+//     console.log("greeting2");
+//     alert("greeting2");
+// }
+
+console.log("yooo")
 
 
 

@@ -4,15 +4,28 @@ class UsersController < ApplicationController
 
     def show 
         @destinations = Destination.all.sort_by{|d| d.location} 
+        byebug
+        if session[:city]
+            @destinations = Destination.where("location LIKE ?", "%#{session[:city].titleize}%")
+          else
+            @destinations = Destination.all.sort_by{|d| d.location}
+          end
         @countries = []
         @destinations.each do |d|
             @countries << d.country 
         end
     end
 
+    def handle_city
+        if session[:city]
+          @destinations = Destination.where("location LIKE ?", "%#{session[:city].titleize}%")
+        else
+          @destinations = Destination.all
+        end
+    end    
+
     def index
         @users = User.all
-        
     end
 
     def new

@@ -7,7 +7,6 @@
 .btn {
   background-color: black;
   border: none;
-  color: hotpink;
   /* padding: 15px 15px 15px 15px; */
   font-size: 16px;
   cursor: pointer;
@@ -17,20 +16,63 @@
 .btn:hover {
   /* background-color: red; */
 }
-
 </style>
 
-<button id="greet-user-button">Hello!</button>
-<%= javascript_pack_tag 'hello'%>
 <%= link_to image_tag(@img_url, :size => 500)%>
 <br><br>
 
+
 <div class="d-flex justify-content-center">
-<button onClick="() => addToFav()" id="btn1" class="btn" title="Add To Favorites"><i class="fa fa-heart fa-2x" style="border:black;color:white"></button></i>&nbsp;
+<button id="btn1" class="btn" title="Add To Favorites"><i id="heart" style="color:white" class="fa fa-heart fa-2x"></button></i>&nbsp;
 <br>
-<button onClick="() => addToItinerary()" id="btn2" class="btn" title="Add To Itinerary"><i class="fa fa-plus fa-2x" style="border:black;color:white"></button></i>
+
+<button id="btn2" class="btn" title="Add To Itinerary"><i id="plus" style="color:white" class="fa fa-plus fa-2x"></button></i>
 <br><br><br>
 </div>
+
+<script>
+$(document.getElementById('btn1')).bind('click', function() {
+  if (document.getElementById('heart').style.color === "red")
+  {
+    var curr_trip = gon.trip
+    var img_url = gon.img_url
+    var title = gon.title
+    var text = gon.text
+    var lat = gon.lat
+    var lng = gon.lng
+
+    if (!curr_trip.activities)
+    { 
+      curr_trip.activities = {}
+    }
+    curr_trip.activities[title] = [img_url,text,lat,lng]
+    console.log("taeg",curr_trip)
+    document.getElementById('heart').style.color = "white"
+    alert("Removed from Favorites")
+  }
+  else
+  {
+  document.getElementById('heart').style.color = "red"
+  alert("Added to Favorites")
+  }
+})
+</script>
+
+<script>
+
+$(document.getElementById('btn2')).bind('click', function() {
+  if (document.getElementById('plus').style.color === "red")
+  {
+    document.getElementById('plus').style.color = "white"
+    alert("Removed from Itinerary")
+  }
+  else
+  {
+  document.getElementById('plus').style.color = "red"
+  alert("Added To Itinerary")
+  }
+})
+</script>
 
 <br><br>
 <h5><%= @text %></h5>

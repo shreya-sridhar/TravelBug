@@ -1,7 +1,8 @@
 class ActivitiesController < ApplicationController
-    def show
-        trips = Trip.all
+    def show    
+        @trips = Trip.all
         @trip = Trip.find(params[:trip_id])
+        gon.trip = @trip
         @place = params["value"][0]
         if @place.include?("source")
             @img_url = @place["source"]
@@ -21,6 +22,11 @@ class ActivitiesController < ApplicationController
         results = Geocoder.search(@house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country)
         @lat = results.first.coordinates[0]
         @lng = results.first.coordinates[1]
+        gon.img_url = @img_url
+        gon.text = @text
+        gon.lat = @lat
+        gon.lng = @lng
+        gon.title = @title
     end 
 
     def index 
