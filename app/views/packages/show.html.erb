@@ -36,25 +36,30 @@
 .btn {
   background-color: white;
   border: none;
-  color: white;
-  padding: 15px 15px 15px 15px;
+  /* padding: 15px 15px 15px 15px; */
   font-size: 16px;
   cursor: pointer;
 }
 
 /* Darker background on mouse-over */
-/* .btn:hover {
-  background-color: red;
-} */
-
+.btn:hover {
+  /* background-color: red; */
+}
 </style>
 
+<%= form_for(@package) do |f| %>
+    <%= f.hidden_field :days, :value => @body.length %>
+    <%= f.hidden_field :package, :value => @package %>
+    <%= f.hidden_field :like, :value => true %>
+    <%= f.submit "Submit"%>
+<% end %>
+
 <div class="d-flex justify-content-center">
-<button class="btn" title="Add To Favorites"><i class="fa fa-heart fa-2x" style="fontsize:45px;color:black"></button></i>
+<button id="btn1" class="btn" title="Add To Favorites"><i id="heart" style="color:black" class="fa fa-heart fa-2x"></button></i>&nbsp;
 <br>
-<button class="btn" title="Add To Itinerary"><i class="fa fa-plus fa-2x" style="fontsize:45px;color:black"></button></i>
-<br><br><br>
+
 </div>
+
 <br>
 <div class="container">
     <div class="row">
@@ -78,4 +83,34 @@
     </div>
 </div>
 
+
+<script>
+$(document.getElementById('btn1')).bind('click', function() {
+  if (document.getElementById('heart').style.color === "red")
+  {
+    document.getElementById('heart').style.color = "black"
+    alert("Removed from Favorites")
+  }
+  else
+  {
+  document.getElementById('heart').style.color = "red"
+  alert("Added to Favorites")
+  }
+})
+</script>
+
+<script>
+$(document.getElementById('btn2')).bind('click', function() {
+  if (document.getElementById('plus').style.color === "red")
+  {
+    document.getElementById('plus').style.color = "black"
+    alert("Removed from Itinerary")
+  }
+  else
+  {
+  document.getElementById('plus').style.color = "red"
+  alert("Added To Itinerary")
+  }
+})
+</script>
 

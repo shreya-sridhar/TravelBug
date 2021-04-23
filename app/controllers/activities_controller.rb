@@ -20,6 +20,7 @@ class ActivitiesController < ApplicationController
         @postcode = @place["postcode"]? @place["postcode"] : ""
         @address = @house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country+", " + @postcode
         results = Geocoder.search(@house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country)
+        # byebug
         @lat = results.first.coordinates[0]
         @lng = results.first.coordinates[1]
         gon.img_url = @img_url

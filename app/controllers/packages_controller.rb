@@ -569,6 +569,22 @@ class PackagesController < ApplicationController
             end
     end
 end
+
+    def edit  
+        @days = params[params["name"]]["days"]
+        @package = params[params["name"]]["package"]
+        @like = params[params["name"]]["like"]
+        if @user.favorites
+            @user.favorites.join("[Package;+"+@package+";+"+@days+"]")
+        else
+            @user.favorites = "[Package;+"+@package+";+"+@days+"]"
+        end
+        @user.save
+    end
+
+    def update 
+    end
+
 end 
 
 

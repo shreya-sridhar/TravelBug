@@ -12,6 +12,11 @@ a{
     color: white;
   }
 
+  #login_form{
+    margin:60px;
+    text-align: center;
+  }
+
   .center-fit{
       width: 100%;
       height: 100%;
@@ -31,7 +36,7 @@ a{
 
   .navbar1{
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); 
     width: -webkit-fill-available; 
@@ -138,6 +143,7 @@ a{
 }
 
 
+
 .video-container {
   position: absolute;
   top: 0;
@@ -214,24 +220,26 @@ text-align: center;
   color:blue;
 }
 
+
 /* Common style */
 .grid figure {
 position: relative;
 float: left;
+align-items: center;
+justify-self: center;
 overflow: hidden;
-margin: 10px 0.1%;
-min-width: 250px;
-max-width: 250px;
-max-height: 250px;
-width: 48%;
+margin: 7px 7px 7px 7px;
+width: 19%;
+height: 19%;
+/* width: 48%; */
 background: #3085a3;
 text-align: center;
 cursor: pointer;
 }
 
 .grid figure img {
-position: relative;
-display: block;
+/* position: relative; */
+/* display: block; */
 min-height: 100%;
 max-width: 100%;
 opacity: 0.8;
@@ -316,8 +324,8 @@ figure.effect-lily figcaption > div {
 
 figure.effect-lily h2,
 figure.effect-lily p {
-	-webkit-transform: translate3d(0,40px,0);
-	transform: translate3d(0,40px,0);
+	-webkit-transform: translate3d(0,15px,0);
+	transform: translate3d(0,15px,0);
 }
 
 figure.effect-lily h2 {
@@ -376,7 +384,13 @@ figure.effect-lily:hover p {
   text-align: center;
 }
 
+.content{
+  display: inline;
+}
 
+.img-fluid{
+  object-fit: cover;
+}
 
 /*********footer*******************/
 . kilimanjaro_area {

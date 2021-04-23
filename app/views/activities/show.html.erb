@@ -21,7 +21,6 @@
 <%= link_to image_tag(@img_url, :size => 500)%>
 <br><br>
 
-
 <div class="d-flex justify-content-center">
 <button id="btn1" class="btn" title="Add To Favorites"><i id="heart" style="color:white" class="fa fa-heart fa-2x"></button></i>&nbsp;
 <br>
@@ -29,6 +28,11 @@
 <button id="btn2" class="btn" title="Add To Itinerary"><i id="plus" style="color:white" class="fa fa-plus fa-2x"></button></i>
 <br><br><br>
 </div>
+
+<%= form_for(@trip) do |f| %>
+    <%= f.hidden_field :like, :value => true %>
+    <%= f.submit "Submit"%>
+<% end %>
 
 <script>
 $(document.getElementById('btn1')).bind('click', function() {
@@ -56,6 +60,7 @@ $(document.getElementById('btn1')).bind('click', function() {
   alert("Added to Favorites")
   }
 })
+
 </script>
 
 <script>

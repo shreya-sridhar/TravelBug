@@ -3,7 +3,7 @@ require 'open-uri'
 require 'json'
 
 class Users::TripsController < ApplicationController
-    before_action :find_trip, only: [:edit, :itinerary]
+    # before_action :find_trip, only: [:edit, :itinerary]
 
     def show
         @user = User.find(params[:user_id].to_i)
@@ -62,6 +62,7 @@ class Users::TripsController < ApplicationController
     end
 
     def edit
+        byebug
     end
 
     def destroy
@@ -81,3 +82,5 @@ private
     end
     
 end
+
+

@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2021_04_23_211858) do
 
-ActiveRecord::Schema.define(version: 2021_01_08_024513) do
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_024513) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "password_digest"
+    t.string "favorites"
   end
 
   add_foreign_key "destination_activities", "activities"
