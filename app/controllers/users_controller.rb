@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :require_login,  :only => [:create, :new]
 
     def show
+        @user_id = @user.id
         @session = 1
         session[:city] = params[:city]
         if session[:city]

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :destinations, only: [:show, :index]
   resources :login, only: [:new, :create]
   resources :destination_activities
-  resources :trips
 
   get '/countries/:name', to: 'countries#show', as: 'countries'
   get '/users/stats', to: 'users#stats', as: 'stats'
@@ -15,13 +14,9 @@ Rails.application.routes.draw do
   post '/packages/:name', to: 'packages#edit', as: 'edit_packages'
   patch '/packages/:name', to: 'packages#update', as: 'patch_packages'
   
-  # root to: 'welcome#home'
-  # resources :users do
-  #   resources :trips, controller: 'users/trips', controller: 'users/trips'
-  # end
-
-  namespace 'welcome' do
-    root :to => "welcome#home"
+  root to: 'welcome#home'
+  resources :users do
+    resources :trips, controller: 'users/trips', shallow: true
   end
 
   post 'activities/:trip', to: 'activities#addactivities', as: 'add_activities'
