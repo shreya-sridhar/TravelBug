@@ -64,8 +64,7 @@ class Users::TripsController < ApplicationController
     def edit
     end
 
-    def update
-        byebug 
+    def update 
         if params[:id].to_i != 0
             @trip = Trip.find(params[:id])
         else 

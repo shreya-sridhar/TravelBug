@@ -1,2 +1,7 @@
-<p>hola!!</p>
+<h2> Your Favorites </h2>
+
+<% @likes.each do |like| %>
+<p><%= link_to like.activity.title, activity_path(like.activity,@trip) %></p>
+<% end %>
+
 

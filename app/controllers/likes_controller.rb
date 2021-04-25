@@ -5,8 +5,7 @@ class LikesController < ApplicationController
     end
 
     def index 
-        byebug
-        @likes = Like.find_by(user_id: @user.id) 
+        @likes = Like.where(user_id: @user.id) 
     end
 
     def create
@@ -20,3 +19,4 @@ private
         params.permit(:activity_id, :user_id, :emoji)
     end
 end
+

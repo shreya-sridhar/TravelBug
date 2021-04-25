@@ -52,18 +52,20 @@ class UsersController < ApplicationController
     end
 
     def update
+        byebug
         if params[:user][:activity_id].to_i == 0
             redirect_to @user
         else 
             @activity = Activity.find(params[:user][:activity_id])
             @like = Like.where(activity_id: @activity.id, user_id: @user.id)
+            @trip = Trip.find(params[:user][:trip_id])
             if @like 
                 byebug
                 new_like = Like.new
                 new_like = Like.create(activity_id: @activity.id, user_id: @user.id)
                 new_like.save 
             else 
-                Like.destroy(@like.id)
+                Like.find(@like.id).destroy
             end
         end 
     end

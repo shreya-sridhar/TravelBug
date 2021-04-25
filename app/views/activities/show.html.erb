@@ -29,6 +29,7 @@
 <% end %>
 
 <%= form_for(@user) do |f| %>
+    <%= f.hidden_field :trip_id, :value => @trip_id %>
     <%= f.hidden_field :activity_id, :value => @activity.id %>
     <button id="btn1" onclick="myFunction2()"> Like <%= f.submit "+" %>
     </button>

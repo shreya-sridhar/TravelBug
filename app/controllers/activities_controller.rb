@@ -5,11 +5,17 @@ class ActivitiesController < ApplicationController
     def show      
         if params[:id].to_i != 0
             @activity = Activity.find(params[:id])
-            @trip = Trip.find(params[:format])
+            if params[:format].to_i != 0
+                @trip = Trip.find(params[:format])
+            else
+                @trip = Trip.find(params[:user][:trip_id])
+            end
         else
             @trips = Trip.all
-            @trip = Trip.find(params[:trip_id])
-            @trip_id = params[:trip_id]
+            if params[:trip_id].to_i != 0
+                @trip = Trip.find(params[:trip_id])
+                @trip_id = params[:trip_id]  
+            end 
             @title = params["value"][0]["title"]
             @activity = Activity.find_by(title: @title)
         end
