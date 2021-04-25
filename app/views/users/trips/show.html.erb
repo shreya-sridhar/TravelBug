@@ -1,6 +1,5 @@
 <h2>Trip Itinerary & Details </h2>
-<h3> Name : <%= @user.name %></h3>
-<h3> Destination : <%= @trip.destination.location%></h3>
+<h3><%= @trip.destination.location%></h3>
 <h3> Itinerary :</h3>
 
 <% @trip.activities.each do |act| %>
@@ -10,6 +9,9 @@
 <h4> Budget : $<%= @trip.budget %></h4>
 <%= link_to 'Continue Making Itinerary',destination_path(@trip.destination,trip_id:@trip.id) %> 
 <%= link_to 'View All User Trips', user_trips_path(@user) %>
-<p><%= image_tag("https://s3.envato.com/files/247495120/20180524-Capture0002-2-Edit.jpg") %></p>
+<p><%= link_to image_tag(@trip.destination.image, :size => 500)%></p>
+
+
+
 
 
