@@ -3,10 +3,10 @@
 <div class="list-group">
 <% @user.trips.reverse.each do |trip| %>
   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+  <%= link_to "View Trip Details", trip_path(@user,trip) %>
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1"><%= trip.destination.location %></h5>
       <small><%= trip.start_date.strftime("%m/%d/%Y") %> to <%= trip.end_date.strftime("%m/%d/%Y") %>
-      <%= link_to "View Trip Details", trip_path(@user,trip) %>
       </small>
     </div>
     <p class="mb-1">Number of travellers : <%= trip.num_of_people %> , Fellow Travellers : <%= trip.traveller_names %></p>

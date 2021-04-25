@@ -4,14 +4,12 @@
 
 <% @trip.activities.each do |act| %>
 <p><%= link_to act.title, activity_path(act,@trip) %></p>
+
 <% end %>
 
 <h4> Budget : $<%= @trip.budget %></h4>
 <%= link_to 'Continue Making Itinerary',destination_path(@trip.destination,trip_id:@trip.id) %> 
 <%= link_to 'View All User Trips', user_trips_path(@user) %>
+
 <p><%= link_to image_tag(@trip.destination.image, :size => 500)%></p>
-
-
-
-
 
