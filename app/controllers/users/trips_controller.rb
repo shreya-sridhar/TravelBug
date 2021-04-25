@@ -7,8 +7,7 @@ class Users::TripsController < ApplicationController
 
     def show
         # @user = User.find(params[:user_id].to_i)
-        @trip = Trip.find(params[:id].to_i)
-        # byebug
+        @trip = Trip.find(params[:format].to_i)
         if params[:destination]
             @destination = Destination.find(params[:destination_id].to_i)
             @trip.destination = @destination
@@ -65,11 +64,16 @@ class Users::TripsController < ApplicationController
     def edit
     end
 
-    def update 
-        @trip = Trip.find(params["trip"]["trip_id"])
+    def update
+        byebug 
+        if params[:id].to_i != 0
+            @trip = Trip.find(params[:id])
+        else 
+            @trip = Trip.find(params["trip"]["trip_id"])
+        end 
         @activity = Activity.find(params["trip"]["activity_id"])
         if @activity.trip_id == @trip.id
-            @activity.trip_id == 1
+            @activity.trip_id = 1
             @activity.save
             byebug
         else 

@@ -3,11 +3,19 @@ class ActivitiesController < ApplicationController
     @@mapping = {}
 
     def show     
-        @trips = Trip.all
-        @trip = Trip.find(params[:trip_id])
-        @trip_id = params[:trip_id]
-        @title = params["value"][0]["title"]
-        @activity = Activity.find_by(title: @title)
+        byebug 
+        if params[:id].to_i != 0
+            byebug
+            @activity = Activity.find(params[:id])
+            @trip = Trip.find(params[:format])
+        else
+            byebug
+            @trips = Trip.all
+            @trip = Trip.find(params[:trip_id])
+            @trip_id = params[:trip_id]
+            @title = params["value"][0]["title"]
+            @activity = Activity.find_by(title: @title)
+        end
     end 
 
     def index 
