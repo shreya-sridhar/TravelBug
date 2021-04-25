@@ -6,8 +6,9 @@ class Users::TripsController < ApplicationController
     # before_action :find_trip, only: [:edit, :itinerary]
 
     def show
-        @user = User.find(params[:user_id].to_i)
+        # @user = User.find(params[:user_id].to_i)
         @trip = Trip.find(params[:id].to_i)
+        # byebug
         if params[:destination]
             @destination = Destination.find(params[:destination_id].to_i)
             @trip.destination = @destination
@@ -62,7 +63,20 @@ class Users::TripsController < ApplicationController
     end
 
     def edit
-        byebug
+    end
+
+    def update 
+        @trip = Trip.find(params["trip"]["trip_id"])
+        @activity = Activity.find(params["trip"]["activity_id"])
+        if @activity.trip_id == @trip.id
+            @activity.trip_id == 1
+            @activity.save
+            byebug
+        else 
+            @activity.trip_id = @trip.id
+            @activity.save
+            byebug
+        end
     end
 
     def destroy
@@ -71,7 +85,7 @@ class Users::TripsController < ApplicationController
         render user_trips_path(@user)
     end
 
-private
+    private
 
     def find_trip
         @trip = @user.trips.find(params[:id])

@@ -2,16 +2,11 @@
 <h3> Name : <%= @user.name %></h3>
 <h3> Destination : <%= @trip.destination.location%></h3>
 <h3> Itinerary :</h3>
-<table class="table table-striped">
-<tbody>
-   <% @trip.hash_of_activities.each do |k,v|%>
-   <tr>
-      <td><%= k %></td>     
-      <td>$<%= v %></td>
-   </tr>
-   <% end %>
-</tbody>
-</table>
+
+<% @trip.activities.each do |act| %>
+<p><%= act.title %></p>
+<% end %>
+
 
 <h4> Budget : $<%= @trip.budget %></h4>
 <h4> Total Expense : $<%= @trip.total_expense %></h4>

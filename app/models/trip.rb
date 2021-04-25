@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
+  has_many :activities
   belongs_to :destination
   validate :trip_date
   validates_presence_of :start_date, :end_date
@@ -10,23 +11,23 @@ class Trip < ApplicationRecord
         end 
     end 
 
-    def hash_of_activities
-        hash = {}
-        if self.activities
-            self.activities.split(' ').each do |act|
-                a = Activity.find(act.to_i)
-                hash[a.name] = Activity.find(act.to_i).price * self.num_of_people
-            end
-        end
-        return hash
-    end
+    # def hash_of_activities
+    #     hash = {}
+    #     if self.activities
+    #         self.activities.split(' ').each do |act|
+    #             a = Activity.find(act.to_i)
+    #             hash[a.name] = Activity.find(act.to_i).price * self.num_of_people
+    #         end
+    #     end
+    #     return hash
+    # end
 
     def total_expense
-        total = 0
-        self.hash_of_activities.each do |k, v|
-            total += v 
-        end
-        return total
+    #     total = 0
+    #     self.hash_of_activities.each do |k, v|
+    #         total += v 
+    #     end
+    #     return total
     end
 
     def average_trip_time_by_destination

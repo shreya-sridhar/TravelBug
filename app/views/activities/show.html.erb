@@ -18,78 +18,41 @@
 }
 </style>
 
-<%= link_to image_tag(@img_url, :size => 500)%>
+<%= link_to image_tag(@activity.img_url, :size => 500)%>
 <br><br>
-
-<div class="d-flex justify-content-center">
-<button id="btn1" class="btn" title="Add To Favorites"><i id="heart" style="color:white" class="fa fa-heart fa-2x"></button></i>&nbsp;
-<br>
-
-<button id="btn2" class="btn" title="Add To Itinerary"><i id="plus" style="color:white" class="fa fa-plus fa-2x"></button></i>
-<br><br><br>
-</div>
 
 <%= form_for(@trip) do |f| %>
     <%= f.hidden_field :like, :value => true %>
-    <%= f.submit "Submit"%>
+    <%= f.hidden_field :trip_id, :value => @trip_id %>
+    <%= f.hidden_field :activity_id, :value => @activity.id %>
+    <button id="btn2" onclick="myFunction()"> Add To Itinerary <%= f.submit ""%>
+    </button>
 <% end %>
 
 <script>
-$(document.getElementById('btn1')).bind('click', function() {
-  if (document.getElementById('heart').style.color === "red")
-  {
-    var curr_trip = gon.trip
-    var img_url = gon.img_url
-    var title = gon.title
-    var text = gon.text
-    var lat = gon.lat
-    var lng = gon.lng
-
-    if (!curr_trip.activities)
-    { 
-      curr_trip.activities = {}
-    }
-    curr_trip.activities[title] = [img_url,text,lat,lng]
-    console.log("taeg",curr_trip)
-    document.getElementById('heart').style.color = "white"
-    alert("Removed from Favorites")
+  function myFunction() {
+      var change = document.getElementById("btn2");
+      if (change.innerHTML == "Add To Itinerary")
+      {
+          change.innerHTML = "Added To Itinerary";
+      }
+      else {
+          change.innerHTML = "Add To Itinerary";
+      }
   }
-  else
-  {
-  document.getElementById('heart').style.color = "red"
-  alert("Added to Favorites")
-  }
-})
-
-</script>
-
-<script>
-
-$(document.getElementById('btn2')).bind('click', function() {
-  if (document.getElementById('plus').style.color === "red")
-  {
-    document.getElementById('plus').style.color = "white"
-    alert("Removed from Itinerary")
-  }
-  else
-  {
-  document.getElementById('plus').style.color = "red"
-  alert("Added To Itinerary")
-  }
-})
 </script>
 
 <br><br>
-<h5><%= @text %></h5>
+<h5><%= @activity.text %></h5>
 <br><br>
-<h5>Address : <%= @address %></h5><br><br>
+<h5>Address : <%= @activity.address %></h5><br><br>
 <h5>How To Get There?</h5>
  <iframe width="100%" 
   height="500" 
   frameborder="0" 
   scrolling="no" 
   marginheight="0" 
-  marginwidth="0"  src="https://www.google.com/maps/embed/v1/place?q=<%=@lat%>,<%=@lng%>&amp;key=AIzaSyBAeaMywiXmsyhhPIabeTCZxBq6FqLAGWU"></iframe>
+  marginwidth="0"  src="https://www.google.com/maps/embed/v1/place?q=<%=@activity.lat%>,<%=@activity.lng%>&amp;key=AIzaSyBAeaMywiXmsyhhPIabeTCZxBq6FqLAGWU"></iframe>
  
 </div>
 <br><br>

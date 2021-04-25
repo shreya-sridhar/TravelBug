@@ -10,22 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_24_183439) do
+ActiveRecord::Schema.define(version: 2021_04_24_195448) do
 
   create_table "activities", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "image"
+    t.integer "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
-    t.integer "price"
     t.string "title"
     t.string "img_url"
     t.string "text"
     t.string "address"
     t.string "lat"
     t.string "lng"
+    t.index ["trip_id"], name: "index_activities_on_trip_id"
   end
 
   create_table "destination_activities", force: :cascade do |t|
@@ -90,7 +87,6 @@ ActiveRecord::Schema.define(version: 2021_04_24_183439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "budget"
-    t.text "activities"
     t.integer "expense"
     t.datetime "end_date"
     t.index ["destination_id"], name: "index_trips_on_destination_id"
@@ -108,6 +104,7 @@ ActiveRecord::Schema.define(version: 2021_04_24_183439) do
     t.string "favorites"
   end
 
+  add_foreign_key "activities", "trips"
   add_foreign_key "destination_activities", "activities"
   add_foreign_key "destination_activities", "destinations"
   add_foreign_key "destination_foods", "destinations"

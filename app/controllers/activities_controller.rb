@@ -1,40 +1,53 @@
 class ActivitiesController < ApplicationController
-    def show    
+
+    @@mapping = {}
+
+    def show     
         @trips = Trip.all
         @trip = Trip.find(params[:trip_id])
-        gon.trip = @trip
-        @place = params["value"][0]
-        if @place.include?("source")
-            @img_url = @place["source"]
-        end
-        @text = @place["text"]
-        @title = @place["title"].split(":")[1]
-        @name = @place["name"]? @place["name"] : ""
-        @road = @place["road"]? @place["road"] : ""
-        @house = @place["house"]? @place["house"] : ""
-        @county = @place["county"]? @place["county"] : ""
-        @town = @place["town"]? @place["town"] : ""
-        @state = @place["state"]? @place["state"] : ""
-        @suburb = @place["suburb"]? @place["suburb"] : ""
-        @country = @place["country"]? @place["country"] : ""
-        @postcode = @place["postcode"]? @place["postcode"] : ""
-        @address = @house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country+", " + @postcode
-        results = Geocoder.search(@house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country)
-        # byebug
-        @lat = results.first.coordinates[0]
-        @lng = results.first.coordinates[1]
-        gon.img_url = @img_url
-        gon.text = @text
-        gon.lat = @lat
-        gon.lng = @lng
-        gon.title = @title
+        @trip_id = params[:trip_id]
+        @title = params["value"][0]["title"]
+        @activity = Activity.find_by(title: @title)
     end 
 
     def index 
         @trip = Trip.find(params[:id])
         @destination = @trip.destination
-        @type = params[:type]
-        @places = Getdatum.get_places(@destination.lat,@destination.lon,@type)
+        @type = params[:type] 
+        if @@mapping.key?(@destination.location+"-"+@type)
+            @places = @@mapping[@destination.location+"-"+@type]
+        else 
+            @places = Getdatum.get_places(@destination.lat,@destination.lon,@type)
+            @places.each do |place,value|
+                @img_url = value[0]["source"]
+                @text = value[2]["text"]
+                @title = value[2]["title"]
+                @house = value[1]["house"] || ""
+                @road = value[1]["road"] || ""
+                @town = value[1]["town"] || ""
+                @state = value[1]["state"] || ""
+                @county = value[1]["county"] || ""
+                @suburb = value[1]["suburb"] || ""
+                @country = value[1]["country"] || ""
+                @postcode = value[1]["postcode"] || ""
+                @address = @house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country+", " + @postcode
+                results = Geocoder.search(@house + ", "+ @road +", "+ @town +", " + @state +", "+ @county +", "+ @suburb +", "+ @country)
+                if results.first
+                    @lat = results.first.coordinates[0]
+                    @lng = results.first.coordinates[1]
+                end 
+                @search_activity = Activity.find_by(address: @address)
+                if !@search_activity
+                    @activity = Activity.new 
+                    @activity = Activity.create(title: @title, img_url: @img_url,text: @text, address: @address, lat: @lat, lng: @lng) 
+                    @activity.trip_id = 1
+                    @activity.save 
+                    @dest_act = DestinationActivity.new
+                    @dest_act = DestinationActivity.create(destination_id: @destination.id, activity_id: @activity.id)
+                end 
+            end
+            @@mapping[@destination.location+"-"+@type] = @places 
+        end
     end
 
     def addactivities
