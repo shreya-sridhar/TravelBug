@@ -75,11 +75,9 @@ class Users::TripsController < ApplicationController
         if @activity.trip_id == @trip.id
             @activity.trip_id = 1
             @activity.save
-            byebug
         else 
             @activity.trip_id = @trip.id
             @activity.save
-            byebug
         end
     end
 

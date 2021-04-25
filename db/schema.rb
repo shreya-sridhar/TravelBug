@@ -114,3 +114,5 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   add_foreign_key "trips", "destinations"
   add_foreign_key "trips", "users"
 end
+
+

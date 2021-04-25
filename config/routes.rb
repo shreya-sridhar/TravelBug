@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :destination_foods
   resources :destination_activities
-  resources :likes, only: [:show, :create]
+  resources :likes, only: [:show, :create, :index]
   resources :foods, only: [:show, :index]
   resources :activities, only: [:show, :index, :edit, :update]
   resources :destinations, only: [:show, :index]
