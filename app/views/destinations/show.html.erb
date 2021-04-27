@@ -131,6 +131,18 @@ function run(){
     </figure>
   </div>
 
+  <div class="content">
+  <div class="grid">
+    <figure id="lola" class="effect-lily">
+      <a href =<%=activities_path({type:"tourist_facilities",id:@trip.id}) %> %><img src="https://www.acentech.com/wp-content/uploads/pau-casals-E_LsevHWTBE-unsplash-scaled.jpg")</a> 
+      <figcaption>
+        <div>
+          <h2>Tourist Facilities</h2>
+        </div>
+      </figcaption>			
+    </figure>
+  </div>
+
 </a>
 
 <br><br><br><br><br><br><br><br><br>
@@ -138,13 +150,5 @@ function run(){
 <br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
-
- <%= button_to 'Profile', user_path(@trip.user), method: :get, class:"button2" %> 
-    <%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
-    <%= button_to 'Back', :back, class:"button3" %>
-
-
-
-
 
   

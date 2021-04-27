@@ -1,8 +1,8 @@
 
 <%= form_with model:@user do |f| %>
 
-<div class="container" id='home'>
-    <div class="col-sm-6 row g-3">
+<div class="container" id='home'> 
+    <div class="col-sm-6 row g-3" >
         <%= f.label :username, 'Create username:' %>
         <%= f.text_field :username, class: "form-control", placeholder: 'Create Userame' %>
     </div>
@@ -12,7 +12,7 @@
         <%= f.text_field :password, class: "form-control", placeholder: 'Create Password' %><br>
     </div>
 
-    <div class="col-sm-5 row g-2 col-auto">
+    <div class="col-sm-6 row g-2 col-auto">
         <div class="col-sm">
             <%= f.label :name, 'Name:' %>
             <%= f.text_field :name, class: "form-control", placeholder: 'Enter Name' %>
@@ -28,6 +28,7 @@
             <%= f.text_field :hometown, class: "form-control", placeholder: ' Hometown' %>
         </div>
     </div>
+    <br><br><br>
 
     <div class="col-sm row g-2">
         <%= f.submit 'Complete Sign Up', class: 'btn btn-dark col-6 mx-auto' %>
@@ -36,3 +37,4 @@
 </div>
 <% end %>
 
+<br><br><br>

@@ -1,10 +1,6 @@
 /*
  *= require font-awesome
  */
-
-a{
-    color:white;
-  }
     
   .bg {
     position: relative;
@@ -32,7 +28,7 @@ a{
     color: white;
     z-index:1;
   }
-  
+
   #map-container {
     height: 400px;
     border-radius: 16px 16px;
@@ -174,6 +170,10 @@ a{
   opacity: 0.3;
 }
 
+html{
+  font-family: 'Alegreya', serif;
+}
+
 .section button {
   font-size: 2rem;
   font-family: "Cookie";
@@ -230,7 +230,7 @@ text-align: center;
 
 
 .things{
-  color:blue;
+  color:white;
 }
 
 
@@ -372,16 +372,15 @@ figure.effect-lily:hover p {
 	transition-duration: 0.35s;
 }
 
-
 #lola{
     position: relative;
     float: left;
     overflow: hidden;
-    margin: 10px 0.1%;
-    min-width: 250px;
+    margin: 17px 17px.1%;
+    min-width: 260px;
     max-width: 450px;
     max-height: 500px;
-    width: 48%;
+    width: 50%;
     background: #3085a3;
     text-align: center;
     cursor: pointer;
@@ -717,5 +716,11 @@ video::-webkit-media-controls-timeline {
   display: none;
 }
 
+a {
+  text-decoration: none !important;
+}
 
+a:link {color: black;}
+a:visited {color: black}
+a:hover {color: #FCFC0C}
 

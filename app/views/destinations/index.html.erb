@@ -7,8 +7,3 @@
         <% end %></li>
     </ul>
 <%end%>
-
-    <%= button_to 'Profile', user_path(@user), method: :get, class:"button2" %> 
-    <%= button_to 'Create Another Trip', new_user_trip_path(@user), method: :get, class:"button3" %> 
-    <%= button_to 'Logout', logout_path, method: :delete, class:"button2" %> 
-    <%= button_to 'Back', :back, class:"button3" %>
