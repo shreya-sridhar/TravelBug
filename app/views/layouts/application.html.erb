@@ -29,13 +29,12 @@
    <% if @user && @user.id %>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#"><%= link_to 'New Trip', new_user_trip_path(@user), method: :get, class:"button3" %></a>
+      <a class="nav-item nav-link" href="#"><%= link_to 'New Trip', user_path(@user), method: :get, class:"button3" %></a>
       <a class="nav-item nav-link" href="#"> <%= link_to 'Edit Profile', edit_user_path(@user), method: :get, class:"button2" %>  </a>
-      <a class="nav-item nav-link" href="#"><%= link_to 'View Favorites', likes_path(@user), method: :get, class:"button3" %></a>
+      <%# <a class="nav-item nav-link" href="#"><%= link_to 'View Favorites', likes_path(@user), method: :get, class:"button3" %></a> 
       <a class="nav-item nav-link" href="#"> <%= link_to 'View All Trips', user_trips_path(@user), method: :get, class:"button3" %></a>
-      
-      <a><%= button_to 'Logout', logout_path, method: :delete, class: "btn" %></a>
     </div>
+    <%= button_to 'Logout', logout_path, method: :delete, class: "btn" %>
   </div>
   <% else %>
  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

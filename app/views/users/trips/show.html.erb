@@ -1,26 +1,18 @@
-<h2>Trip Itinerary & Details </h2>
-<h3><%= @trip.destination.location%></h3>
-<h3> Itinerary :</h3>
-
-<% @trip.activities.each do |act| %>
-<p><%= link_to act.title, activity_path(act,@trip) %></p>
-
-<% end %>
-
-<h4> Budget : $<%= @trip.budget %></h4>
 <%= link_to 'Continue Making Itinerary',destination_path(@trip.destination,trip_id:@trip.id) %> 
 <%= link_to 'View All User Trips', user_trips_path(@user) %>
+<%# 
+<p><%= link_to image_tag(@trip.destination.image, :size => 500)%>
 
-<p><%= link_to image_tag(@trip.destination.image, :size => 500)%></p>
 
 <% i = 0 %>
 <% num = @trip.activities.length %>
 
 <section id=timeline>
-	<h1>A Flexbox Timeline</h1>
-	<p class="leader">All cards must be the same height and width for space calculations on large screens.</p>
+	<h1><%= @trip.destination.location%></h1>
+	<p class="leader"> Budget : $<%= @trip.budget %></p>
+    <p class="leader"> Travel Dates : <%= @trip.start_date.strftime("%m/%d/%Y") %> to <%= @trip.end_date.strftime("%m/%d/%Y") %></p>
 	<div class="demo-card-wrapper">
-    <% while i < num  do %>
+    <% while i <= num  do %>
 		<div class="demo-card demo-card--step1">
 			<div class="head">
 				<div class="number-box">
@@ -30,10 +22,10 @@
 			</div>
 			<div class="body">
 				<p><%= @trip.activities[i].text %></p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
+				<%= link_to image_tag(@trip.activities[i].img_url, :size => 250), activity_path(@trip.activities[i],@trip) %>
 			</div>
 		</div>
-        <% if @trip.activities.length >= i+1 %>
+        <% if @trip.activities.length > i+1 %>
 		<div class="demo-card demo-card--step2">
 			<div class="head">
 				<div class="number-box">
@@ -43,11 +35,15 @@
 			</div>
 			<div class="body">
 				<p><%= @trip.activities[i+1].text %></p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
+				<%= link_to image_tag(@trip.activities[i+1].img_url, :size => 250), activity_path(@trip.activities[i+1],@trip) %>
 			</div>
 		</div>
+        <% else %>
+        <div class="demo-card" id="lol">
+			 
+		</div>
         <% end %>
-         <% if @trip.activities.length >= i+2 %>
+         <% if @trip.activities.length > i+2 %>
 		<div class="demo-card demo-card--step3">
 			<div class="head">
 				<div class="number-box">
@@ -57,11 +53,15 @@
 			</div>
 			<div class="body">
 				<p> <%= @trip.activities[i+2].text %></p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
+				<%= link_to image_tag(@trip.activities[i+2].img_url, :size => 250), activity_path(@trip.activities[i+2],@trip) %>
 			</div>
 		</div>
+        <% else %>
+        <div class="demo-card" id="lol">
+			
+		</div>
         <% end %>
-         <% if @trip.activities.length >= i+3 %>
+         <% if @trip.activities.length > i+3 %>
 		<div class="demo-card demo-card--step4">
 			<div class="head">
 				<div class="number-box">
@@ -71,11 +71,15 @@
 			</div>
 			<div class="body">
 				<p><%= @trip.activities[i+3].text %></p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
+				<%= link_to image_tag(@trip.activities[i+3].img_url, :size => 250), activity_path(@trip.activities[i+3],@trip)%>
 			</div>
 		</div>
+        <% else %>
+        <div class="demo-card" id="lol">
+			
+		</div>
         <% end %>
-        <% if @trip.activities.length >= i+4 %>
+        <% if @trip.activities.length > i+4 %>
 		<div class="demo-card demo-card--step5">
 			<div class="head">
 				<div class="number-box">
@@ -85,8 +89,12 @@
 			</div>
 			<div class="body">
 				<p><%= @trip.activities[i+4].text %></p>
-				<img src="http://placehold.it/1000x500" alt="Graphic">
+				<%= link_to image_tag(@trip.activities[i+4].img_url, :size => 250), activity_path(@trip.activities[i+4],@trip)%>
 			</div>
+		</div>
+        <% else %>
+        <div class="demo-card" id="lol">
+			
 		</div>
         <% end %>
         <% i = i+5 %>
