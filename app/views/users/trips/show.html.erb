@@ -13,3 +13,84 @@
 
 <p><%= link_to image_tag(@trip.destination.image, :size => 500)%></p>
 
+<% i = 0 %>
+<% num = @trip.activities.length %>
+
+<section id=timeline>
+	<h1>A Flexbox Timeline</h1>
+	<p class="leader">All cards must be the same height and width for space calculations on large screens.</p>
+	<div class="demo-card-wrapper">
+    <% while i < num  do %>
+		<div class="demo-card demo-card--step1">
+			<div class="head">
+				<div class="number-box">
+					<span><%= i+1 %></span>
+				</div>
+				<h2><%= @trip.activities[i].title %></h2>
+			</div>
+			<div class="body">
+				<p><%= @trip.activities[i].text %></p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+        <% if @trip.activities.length >= i+1 %>
+		<div class="demo-card demo-card--step2">
+			<div class="head">
+				<div class="number-box">
+					<span><%= i+2 %></span>
+				</div>
+				<h2><%= @trip.activities[i+1].title %></h2>
+			</div>
+			<div class="body">
+				<p><%= @trip.activities[i+1].text %></p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+        <% end %>
+         <% if @trip.activities.length >= i+2 %>
+		<div class="demo-card demo-card--step3">
+			<div class="head">
+				<div class="number-box">
+					<span><%= i+3 %></span>
+				</div>
+				<h2><%= @trip.activities[i+2].title %></h2>
+			</div>
+			<div class="body">
+				<p> <%= @trip.activities[i+2].text %></p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+        <% end %>
+         <% if @trip.activities.length >= i+3 %>
+		<div class="demo-card demo-card--step4">
+			<div class="head">
+				<div class="number-box">
+					<span><%= i+4 %></span>
+				</div>
+				<h2><%= @trip.activities[i+3].title %></h2>
+			</div>
+			<div class="body">
+				<p><%= @trip.activities[i+3].text %></p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+        <% end %>
+        <% if @trip.activities.length >= i+4 %>
+		<div class="demo-card demo-card--step5">
+			<div class="head">
+				<div class="number-box">
+					<span><%= i+5 %></span>
+				</div>
+				<h2><%= @trip.activities[i+4].title %></h2>
+			</div>
+			<div class="body">
+				<p><%= @trip.activities[i+4].text %></p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+        <% end %>
+        <% i = i+5 %>
+	</div>
+    <% end %>
+</section>
+
