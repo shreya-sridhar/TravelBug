@@ -11,6 +11,8 @@ class Users::TripsController < ApplicationController
         if params[:destination]
             @destination = Destination.find(params[:destination_id].to_i)
             @trip.destination = @destination
+        else 
+            @destination = @trip.destination
         end
     end
 
