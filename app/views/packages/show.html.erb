@@ -47,13 +47,6 @@
 }
 </style>
 
-<%= form_for(@package) do |f| %>
-    <%= f.hidden_field :days, :value => @body.length %>
-    <%= f.hidden_field :package, :value => @package %>
-    <%= f.hidden_field :like, :value => true %>
-    <%= f.submit "Submit"%>
-<% end %>
-
 <%# <div class="d-flex justify-content-center">
 <button id="btn1" class="btn" title="Add To Favorites"><i id="heart" style="color:black" class="fa fa-heart fa-2x"></button></i>&nbsp;
 <br>

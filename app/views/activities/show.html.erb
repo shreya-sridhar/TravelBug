@@ -9,7 +9,7 @@
 <%= form_for(@trip) do |f| %>
     <%= f.hidden_field :trip_id, :value => @trip_id %>
     <%= f.hidden_field :activity_id, :value => @activity.id %>
-    <button id="btn2" onclick="myFunction()"> Add To Itinerary <%= f.submit "+" %>
+    <button id="btn2" onclick="myFunction()"> Add To Itinerary <%= f.submit "" %>
     </button>
 <% end %>
 

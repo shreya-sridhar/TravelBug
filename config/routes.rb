@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/packages/:name', to: 'packages#edit', as: 'edit_packages'
   patch '/packages/:name', to: 'packages#update', as: 'patch_packages'
   
-  root to: 'welcome#home'
+  root to: 'welcome#home', as: 'home'
   resources :users do
     resources :trips, controller: 'users/trips', shallow: true
   end
