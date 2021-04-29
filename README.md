@@ -25,10 +25,3 @@ Run rails db:migrate to set up the application tables
 Run rails db:seed to add data to the tables
 Run rails s to start the server
 
-⭐ Contact
-👤 Shreya Sridhar - Github: @shreya-sridhar
-
-✏️ License
-Copyright © 2021 Shreya Sridhar
-This project is MIT license
-
