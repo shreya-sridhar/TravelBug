@@ -522,6 +522,35 @@ class PackagesController < ApplicationController
         @image2 = "https://i.guim.co.uk/img/media/b4f3c2dae7452e913fa5a931269b8fbdcf617b0d/90_0_3966_2379/master/3966.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=ad7617451419ded0199a65ca45d17d13"
         @image3 = "https://www.sciencehistory.org/sites/default/files/styles/rte_full_width/public/Over%20the%20Wall_Six%20Stories%20from%20East%20Germany_4_0.jpg?itok=MFXfOSG5"
         @package = "Behind the Wall - East Berlin Stories"
+    elsif (params[:name] == "Chicago Culture & Architecture")
+        @title = []
+        @body = ["Chicago has it all – amazing architecture, great food, and iconic sights both old and new. This tour takes you to some of the city’s best spots alongside a local guide where you’ll get the inside scoop on what makes Chicago so special. Not only that, we’ll throw in a couple of sweet, local treats to keep you going as we explore on foot and via local transportation.
+
+            Highlights
+            Marvel at the stunning Chicago skyline and discover why Chicago’s architecture is among the best in the world
+            Get around The Loop like a local: at street level, underground, elevated rails, or perhaps even on the water
+            Enjoy a couple of classic made-in-Chicago snacks like Chicago-style popcorn and homemade chocolate
+            Immerse yourself in the best of Chicago culture and discover why Chicago’s art, food scene and architecture is one of a kind
+            Feel the energy and buzz in one of Chicago’s beautiful lakefront parks and get that photo-op at the world-famous Bean"]
+        @image1 = "https://www.chicago.gov/content/dam/city/depts/dca/Chicago%20Cultural%20Center/cccpbh800.jpg"
+        @image2 = "https://media-cdn.urbanadventures.com/data/125/tour_2494/c-fakepath-urban-adventures-usa_chicago_bean_sculpture_photo.jpg"
+        @image3 = "https://cdn.choosechicago.com/uploads/2019/06/museums-culture-1800x900.jpg"
+        @package = "Chicago Culture & Architecture"
+    elsif (params[:name] == "Puerto Natales Private Tour")
+        @title = []
+        @body = ["We invite you to explore and get to know the wilder side of southern Patagonia, Puerto Natales and Torres del Paine National Park. Put our team of local experts to work to build the perfect itinerary just for you. If you're not sure, we've got plenty of ideas for what you might want to include, from sailing and kayaking, to hiking, horseback riding and much more! let us accompany you on your adventures in Patagonia.
+
+            Highlights
+            Discover the glaciers and southern ice fields of Patagonia
+            Explore Torres del Paine National Park and all the attractions that surround it
+            Go on a horseback riding adventure or visit a local sheep ranch
+            Experience some of the best hiking Patagonia has to offer
+            See Patagonia’s wild, unforgettable beauty up close alongside a knowledgeable local guide
+             "]
+        @image1 = "https://www.whereandwhen.net/site/images/illustration/puerto-natales.jpg"
+        @image2 = "https://travelswithtalek.com/wp-content/uploads/2018/06/Torres-bridge-1-x.jpg"
+        @image3 = "https://images.squarespace-cdn.com/content/v1/54baa036e4b0ac034b251b47/1517934996922-7NHQITKXXHIYBZWSPMU3/ke17ZwdGBToddI8pDm48kBl7seCE8M3XLYsNFypTUSF7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fJ4aAgbBBbkF6Kvf8m0QP07q15_KJqjdukLqBEc4p5LKQ/IMG_2014.JPG?format=1500w"
+        @package = "Puerto Natales Private Tour"
     else 
         @destination = Destination.find_by(location: params[:name])
         @restaurants = Getdatum.get_places(@destination.lat,@destination.lon,"foods").keys
