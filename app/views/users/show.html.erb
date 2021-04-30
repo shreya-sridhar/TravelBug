@@ -5,7 +5,7 @@
 </div>
 <% end %>
 <nav class="navbar1 navbar-light bg-light">
-  <form class="form-inline d-inline w-100" action= 2 method="GET" >
+  <form class="form-inline d-inline w-100" action= <%= @user_id %> method="GET" >
   <input class="form-control-lg d-inline w-100" placeholder="Search City" aria-label="Search" type="text" name="city" >
     </form>
 </nav>
@@ -223,7 +223,7 @@
 
 <a id="wall">
 <% if !@session %>
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <% end %>
 <% @destinations.each do |destination| %>
 <div class="content">
