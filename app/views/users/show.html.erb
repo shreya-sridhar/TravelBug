@@ -114,6 +114,113 @@
 </section>
 <% end %>
 
+
+
+<% if @session %>
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="mb-3">Out of The World Experiences</h3>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators3" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="col-12">
+        <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                            <a href="<%= packages_path({:name => "Melbourne: Coffee, Culture & History of Collingwood"}) %>">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/qpjd5nadcm80gm2mxdmc/Coffee,%20Culture,%20and%20History%20of%20Collingwood%20Tour%20in%20Melbourne.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Melbourne: Coffee, Culture & History of Collingwood</h4>
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                 <a href="<%= packages_path({:name => "Total Miami Tour: Little Havana, Wynwood & South Beach"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://media-cdn.urbanadventures.com/data/218/tour_1820/c-fakepath-total-miami-tour-11-.jpg">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Total Miami Tour: Little Havana, Wynwood & South Beach"</h4>
+                                        <p class="card-text"></p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "Marrakech tour tajine cookery class"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://mediaim.expedia.com/localexpert/172541/be9f985d-e72b-4b72-9a0b-d42622e385e0.jpg?impolicy=resizecrop&rw=1005&rh=565">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Marrakech tour tajine cookery class </h4>
+                                        <p class="card-text"></p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "Behind the Wall - East Berlin Stories"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://i.guim.co.uk/img/media/b4f3c2dae7452e913fa5a931269b8fbdcf617b0d/90_0_3966_2379/master/3966.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=ad7617451419ded0199a65ca45d17d13">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Behind the Wall - East Berlin Stories</h4>
+                                        <p class="card-text"></p>
+                                    </div>
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "South Africa"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--MuOcvpI3--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/334/837/original/1595846778_Cape_Point.jpg.jpg?1595846778">
+                                    <div class="card-body">
+                                        <h4 class="card-title">South Africa</h4>
+                                        <p class="card-text">South Africa is considered to be one of the most geographically varied counties in the world that ranges from fertile plains to wide-open savannah</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                <a href="<%= packages_path({:name => "Egypt"}) %>">
+                                    <img class="img-fluid" alt="100%x280" src="https://images.thrillophilia.com/image/upload/s--1OHFqJYq--/c_fill,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/334/728/original/1595842233_Khan_El-Khalili_Bazaar.jpg.jpg?1595842233">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Egypt</h4>
+                                        <p class="card-text">The land of the Pharaohs, Pyramids, ancient Kingdoms and rich heritage, this is Egypt where you and your loved ones can spend a beautiful 7-day vacation </p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<% end %>
+
+
+
 <a id="wall">
 <% if !@session %>
 <br><br><br><br><br><br><br><br><br><br><br><br>

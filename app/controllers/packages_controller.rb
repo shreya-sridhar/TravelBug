@@ -464,13 +464,103 @@ class PackagesController < ApplicationController
         @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
         @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
         @package = "Egypt"
-        else 
-            @destination = Destination.find_by(location: params[:name])
-            @restaurants = Getdatum.get_places(@destination.lat,@destination.lon,"foods").keys
-            @nature = Getdatum.get_places(@destination.lat,@destination.lon,"natural").keys
-            @hotels = Getdatum.get_places(@destination.lat,@destination.lon,"accomodations").keys
-            @architecture = Getdatum.get_places(@destination.lat,@destination.lon,"historic").keys
-            if params[:days]=="15"
+    elsif (params[:name] == "Melbourne: Coffee, Culture & History of Collingwood")
+        @title = []
+        @body = ["Explore the diverse suburb of Collingwood and learn how it has transformed into the hipster area of Melbourne
+            Visit a social enterprise café that employs and supports, disadvantaged youth.
+            Enjoy a famous Melbourne coffee brewed in their in-house roastery and share a delicious croissant from their in-house bakery. We donate $1AUD to the café for every guest that joins this tour.
+            Discover some of the best street art in Melbourne and one of the most historic shopping streets.
+            This tour is fully accessible for wheelchairs
+            Local Impact: How you will help the local community by joining this tour:
+            
+            On this tour, you’ll visit and enjoy a coffee and croissant from STREAT café, a social enterprise that hires and trains disadvantaged youth and supports youth homelessness. As well, $1 will from every traveller booked is donated back to the cafe
+            You’ll learn about issues facing refugees and local minorities, with a visit to a 20-storey mural that features some of the local residents in the Collingwood housing commission towers
+            We’ll discuss the area’s many different social enterprises and the important local causes that they support."]
+        @image1 = "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/qpjd5nadcm80gm2mxdmc/Coffee,%20Culture,%20and%20History%20of%20Collingwood%20Tour%20in%20Melbourne.jpg"
+        @image2 = "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/qpjd5nadcm80gm2mxdmc/Coffee,%20Culture,%20and%20History%20of%20Collingwood%20Tour%20in%20Melbourne.jpg"
+        @image3 = "https://cdn.projectexpedition.com/photos/5f7595ab00fb3_sized.jpg"
+        @package = "Melbourne: Coffee, Culture & History of Collingwood"
+    elsif (params[:name]=="Marrakech tour tajine cookery class")
+        @title = []
+        @body = ["Receive a Moroccan masterclass on this Marrakech tour that will send you home with supreme, inside knowledge of tajine making and the delicate art of market haggling. Smug home cook alert!
+
+            Highlights
+            Learn to make a deliciously authentic Moroccan tajine with locals
+            Explore some of the colourful souks of Marrakech
+            Learn the tongue-twisting Arabic words for key ingredients so you can shop like a local
+            Cook in the beautiful setting of a classic Moroccan riad and get to know the family that live there
+            Enjoy a delicious lunch – cooked by you!"]
+        @image1 = "https://mediaim.expedia.com/localexpert/172541/be9f985d-e72b-4b72-9a0b-d42622e385e0.jpg?impolicy=resizecrop&rw=1005&rh=565" 
+        @image2 = "https://www.mosaicnorthafrica.com/wp-content/uploads/2018/02/moroccan-tagine.jpg"
+        @image3 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlf5MjUF3mLnCHDpnHEjgrZw1gd1HrsSIW9g&usqp=CAU"
+        @package = "Tajine Cookery Class"
+    elsif (params[:name] == "Total Miami Tour: Little Havana, Wynwood & South Beach")
+        @title = []
+        @body = ["Make the most of Miami! This tour takes you from the Latin infusion of Little Havana to the contemporary art world of Wynwood to the iconic glam of South Beach. Grab a cup of cortadito, see hidden murals by world-renowned artists, enjoy local snacks, beers and a cocktail, hit the beach and top it all off with a drink (and maybe some dance moves) at a local hangout. This is the ultimate, jam-packed Miami adventure!
+
+            Highlights
+            See Cuban-inspired art in the many galleries and public spaces of Little Havana
+            Sip a cortadito coffee as well as that most delicious of Cuban beverages, the classic mojito
+            Learn the stories behind Miami’s street art, and see murals tucked away in the Wynwood Art District
+            Enjoy a refreshing beer from two beloved breweries, and a tropical cocktail at a rooftop bar
+            See amazing examples of iconic Art Deco architecture
+            Hit the beach and enjoy the sand between your toes while playing some friendly games"]
+        @image1 = "https://media-cdn.urbanadventures.com/data/218/tour_1820/c-fakepath-total-miami-tour-11-.jpg"
+        @image2 = "https://therealdeal.com/miami/wp-content/uploads/2019/06/690-calle-ocho-650x405.jpg"
+        @image3 = "https://images.squarespace-cdn.com/content/v1/5de158294d009912ef83ab66/1578269522159-WAGC79V0Z2WOHUQT8DFG/ke17ZwdGBToddI8pDm48kJK4Mm1kch8SFO9ZNkN1NT97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmFk_H6M1tkD9NpL7mXac0oVSXdFfjxR5AjcLwGSebOiGBsFzzcw3xKxvyC_6CFFG_/rpp_miami_012019_miamabeach008.jpg?format=1000w"
+        @package = "Total Miami Tour: Little Havana, Wynwood & South Beach"
+    elsif (params[:name] == "Behind the Wall - East Berlin Stories")
+        @title = []
+        @body = ["Discover what the former East Berlin was really like in this unique experience; from cultural traditions and anarchic rebellions, to dividing walls and creative fervour, this tour will take you behind the scenes of the real East Berlin.
+
+            Highlights
+            Learn all about the Cold War and East Berlin's dramatic transformation over the last decades
+            Explore the history of Berlin's most creative neighbourhoods which were the heart of Berlin subculture in the 90s
+            Discover where Martin Luther King gave his famous speech in 1964
+            On Sundays only: Be a real 2020 Berliner and pick up a bargain from Mauerpark fleamarket, just five minutes' walk from the end point before strolling through the beautiful leafy neighbourhood of Prenzlauerberg with its stunning architecture and lovingly restored buildings"]
+        @image1 = "https://i.guim.co.uk/img/media/b4f3c2dae7452e913fa5a931269b8fbdcf617b0d/90_0_3966_2379/master/3966.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=ad7617451419ded0199a65ca45d17d13"
+        @image2 = "https://i.guim.co.uk/img/media/b4f3c2dae7452e913fa5a931269b8fbdcf617b0d/90_0_3966_2379/master/3966.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=ad7617451419ded0199a65ca45d17d13"
+        @image3 = "https://www.sciencehistory.org/sites/default/files/styles/rte_full_width/public/Over%20the%20Wall_Six%20Stories%20from%20East%20Germany_4_0.jpg?itok=MFXfOSG5"
+        @package = "Behind the Wall - East Berlin Stories"
+    else 
+        @destination = Destination.find_by(location: params[:name])
+        @restaurants = Getdatum.get_places(@destination.lat,@destination.lon,"foods").keys
+        @nature = Getdatum.get_places(@destination.lat,@destination.lon,"natural").keys
+        @hotels = Getdatum.get_places(@destination.lat,@destination.lon,"accomodations").keys
+        @architecture = Getdatum.get_places(@destination.lat,@destination.lon,"historic").keys
+        if params[:days]=="15"
+                @title = Array.new
+                @body = Array.new
+                i = 0
+                url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                uri = URI.parse(url)
+                response = Net::HTTP.get_response(uri)
+                response.body
+                @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                @package = @destination.location
+                while i < 15
+                    @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                    i = i+1;
+                end
+            elsif params[:days]=="10"
+                @title = Array.new
+                @body = Array.new
+                i = 0
+                url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                uri = URI.parse(url)
+                response = Net::HTTP.get_response(uri)
+                response.body
+                @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                @package = @destination.location
+                while i < 10
+                    @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                    i = i+1;
+                end
+            elsif params[:days]=="8"
                     @title = Array.new
                     @body = Array.new
                     i = 0
@@ -482,27 +572,11 @@ class PackagesController < ApplicationController
                     @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
                     @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
                     @package = @destination.location
-                    while i < 15
+                    while i < 8
                         @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
                         i = i+1;
                     end
-                elsif params[:days]=="10"
-                    @title = Array.new
-                    @body = Array.new
-                    i = 0
-                    url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
-                    uri = URI.parse(url)
-                    response = Net::HTTP.get_response(uri)
-                    response.body
-                    @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
-                    @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
-                    @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
-                    @package = @destination.location
-                    while i < 10
-                        @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
-                        i = i+1;
-                    end
-                elsif params[:days]=="8"
+                elsif params[:days]=="6"
                         @title = Array.new
                         @body = Array.new
                         i = 0
@@ -514,11 +588,11 @@ class PackagesController < ApplicationController
                         @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
                         @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
                         @package = @destination.location
-                        while i < 8
+                        while i < 6
                             @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
                             i = i+1;
                         end
-                    elsif params[:days]=="6"
+                    elsif params[:days]=="5"
                             @title = Array.new
                             @body = Array.new
                             i = 0
@@ -530,43 +604,27 @@ class PackagesController < ApplicationController
                             @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
                             @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
                             @package = @destination.location
-                            while i < 6
+                            while i < 5
                                 @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
                                 i = i+1;
                             end
-                        elsif params[:days]=="5"
-                                @title = Array.new
-                                @body = Array.new
-                                i = 0
-                                url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
-                                uri = URI.parse(url)
-                                response = Net::HTTP.get_response(uri)
-                                response.body
-                                @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
-                                @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
-                                @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
-                                @package = @destination.location
-                                while i < 5
-                                    @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
-                                    i = i+1;
-                                end
-                        else
-                            @title = Array.new
-                            @body = Array.new
-                            i = 0
-                            url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
-                            uri = URI.parse(url)
-                            response = Net::HTTP.get_response(uri)
-                            response.body
-                            @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
-                            @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
-                            @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
-                            @package = @destination.location
-                            while i < 7
-                                @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
-                                i = i+1;
-                            end         
-            end
+                    else
+                        @title = Array.new
+                        @body = Array.new
+                        i = 0
+                        url = "https://pixabay.com/api/?key=20881751-dd7fb42383b27ec4a1d57dca8&q=#{@destination.location}&image_type=photo&pretty=true&page=1&per_page=3"
+                        uri = URI.parse(url)
+                        response = Net::HTTP.get_response(uri)
+                        response.body
+                        @image1 = JSON.parse(response.body)["hits"][0]["largeImageURL"]
+                        @image2 = JSON.parse(response.body)["hits"][1]["largeImageURL"]
+                        @image3 = JSON.parse(response.body)["hits"][2]["largeImageURL"]
+                        @package = @destination.location
+                        while i < 7
+                            @body.push("Today, you will stay at the luxurious #{@hotels[i]}.Enjoy nature, at the breathtaking #{@nature[i]}. Explore the regal #{@architecture[i]}. Dine at the exotic #{@restaurants[i]}.");
+                            i = i+1;
+                        end         
+        end
     end
 end
 
