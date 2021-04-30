@@ -1,17 +1,23 @@
 <div style ="text-align:center">
 <br><br>
 <%= link_to 'Continue Making Itinerary',destination_path(@trip.destination,trip_id:@trip.id) %> 
-<h3><%= @activity.title %></h3>
+<%= link_to 'View Itinerary',trip_path(@user,@trip) %> 
+<h3><%= @title %></h3>
 <br>
-
 <%= link_to image_tag(@activity.img_url, :size => 500)%>
 <br><br>
 
 <%= form_for(@trip) do |f| %>
     <%= f.hidden_field :trip_id, :value => @trip_id %>
     <%= f.hidden_field :activity_id, :value => @activity.id %>
-    <button id="btn2" onclick="myFunction()"> Add To Itinerary <%= f.submit "" %>
+    <button id="btn2" onclick="myFunction()"> 
+    <% if @activity.trip_id != @trip.id %>
+    Add To Itinerary
+    <% else %>
+    Added To Itinerary
+    <% end %>
     </button>
+    <%= f.submit "❤️" %>
 <% end %>
 
 <%# <%= form_for(@user) do |f| %>
@@ -24,12 +30,12 @@
 <script>
   function myFunction() {
       var change = document.getElementById("btn2");
-      if (change.innerHTML == "Added To Itinerary")
+      if (change.innerText == "Added To Itinerary")
       {
-          change.innerHTML = "Add To Itinerary";
+          change.innerText = "Add To Itinerary";
       }
       else {
-          change.innerHTML = "Added To Itinerary";
+          change.innerText = "Added To Itinerary";
       }
   }
 

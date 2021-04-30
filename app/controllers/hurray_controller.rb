@@ -1,0 +1,2 @@
+class HurrayController < ApplicationController
+end

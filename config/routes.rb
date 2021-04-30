@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post '/packages/:name', to: 'packages#edit', as: 'edit_packages'
   patch '/packages/:name', to: 'packages#update', as: 'patch_packages'
   
+  # root 'hurray#index'
   root to: 'welcome#home', as: 'home'
   resources :users do
     resources :trips, controller: 'users/trips', shallow: true
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   patch '/activities/:id/add_likes', to: 'activities#add_likes', as:'add_likes'
 
   delete "logout", to: "login#destroy", as: "logout"
+  delete "delete", to: "users#destroy", as: "delete"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
