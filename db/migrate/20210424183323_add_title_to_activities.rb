@@ -1,5 +1,5 @@
 class AddTitleToActivities < ActiveRecord::Migration[6.1]
   def change
-    add_column :activities, :title, :string
+    add_column :activities, :title, :text
   end
 end

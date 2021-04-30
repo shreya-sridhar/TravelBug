@@ -12,22 +12,25 @@
 
 ActiveRecord::Schema.define(version: 2021_04_24_195448) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: :cascade do |t|
-    t.integer "trip_id", null: false
+    t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
-    t.string "img_url"
-    t.string "text"
-    t.string "address"
-    t.string "lat"
-    t.string "lng"
+    t.text "title"
+    t.text "img_url"
+    t.text "text"
+    t.text "address"
+    t.text "lat"
+    t.text "lng"
     t.index ["trip_id"], name: "index_activities_on_trip_id"
   end
 
   create_table "destination_activities", force: :cascade do |t|
-    t.integer "destination_id", null: false
-    t.integer "activity_id", null: false
+    t.bigint "destination_id", null: false
+    t.bigint "activity_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_destination_activities_on_activity_id"
@@ -35,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   end
 
   create_table "destination_foods", force: :cascade do |t|
-    t.integer "destination_id", null: false
-    t.integer "food_id", null: false
+    t.bigint "destination_id", null: false
+    t.bigint "food_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["destination_id"], name: "index_destination_foods_on_destination_id"
@@ -44,10 +47,10 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   end
 
   create_table "destinations", force: :cascade do |t|
-    t.string "location"
-    t.string "country"
-    t.string "description"
-    t.string "image"
+    t.text "location"
+    t.text "country"
+    t.text "description"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "lat"
@@ -55,10 +58,10 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.string "cuisine"
-    t.string "restaurant_name"
-    t.string "dish"
-    t.string "image"
+    t.text "cuisine"
+    t.text "restaurant_name"
+    t.text "dish"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,9 +72,9 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "emoji"
-    t.integer "user_id", null: false
-    t.integer "activity_id", null: false
+    t.text "emoji"
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_likes_on_activity_id"
@@ -81,9 +84,9 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   create_table "trips", force: :cascade do |t|
     t.datetime "start_date"
     t.integer "num_of_people"
-    t.string "traveller_names"
-    t.integer "user_id", null: false
-    t.integer "destination_id", null: false
+    t.text "traveller_names"
+    t.bigint "user_id", null: false
+    t.bigint "destination_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "budget"
@@ -94,14 +97,14 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.integer "age"
-    t.string "hometown"
+    t.text "hometown"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
-    t.string "password_digest"
-    t.string "favorites"
+    t.text "username"
+    t.text "password_digest"
+    t.text "favorites"
   end
 
   add_foreign_key "activities", "trips"
@@ -114,5 +117,3 @@ ActiveRecord::Schema.define(version: 2021_04_24_195448) do
   add_foreign_key "trips", "destinations"
   add_foreign_key "trips", "users"
 end
-
-

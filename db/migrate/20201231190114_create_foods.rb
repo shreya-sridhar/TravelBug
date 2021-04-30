@@ -1,10 +1,10 @@
 class CreateFoods < ActiveRecord::Migration[6.1]
   def change
     create_table :foods do |t|
-      t.string :cuisine
-      t.string :restaurant_name
-      t.string :dish
-      t.string :image
+      t.text :cuisine
+      t.text :restaurant_name
+      t.text :dish
+      t.text :image
 
       t.timestamps
     end
