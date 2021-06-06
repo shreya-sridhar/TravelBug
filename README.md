@@ -1,3 +1,4 @@
+![tb4](https://user-images.githubusercontent.com/19844780/120911575-523d8400-c63d-11eb-908b-5b102dc1ab28.PNG)
 💸 Welcome to TravelBug 💸
 
 ### ✈️ TravelBug  [Website](https://travellerbug.herokuapp.com/) | [Code](https://github.com/shreya-sridhar/travel_itinerary_maker) | [Video Demo](https://www.youtube.com/watch?v=y4_sh7RIJ5g) 
@@ -33,9 +34,10 @@ Check the video demo of how TravelBug works.
 <img src="https://user-images.githubusercontent.com/19844780/120911526-02f75380-c63d-11eb-91ad-88d71fe06e49.PNG" width="350">
 ![tb2](https://user-images.githubusercontent.com/19844780/120911528-0559ad80-c63d-11eb-9211-5d336214aa78.PNG)
 ![tb3](https://user-images.githubusercontent.com/19844780/120911529-07237100-c63d-11eb-83b2-e295b91ca7e5.PNG)
-
+![tb4](https://user-images.githubusercontent.com/19844780/120911584-608ba000-c63d-11eb-804e-87014f84b1cd.PNG)
+![tb5](https://user-images.githubusercontent.com/19844780/120911587-684b4480-c63d-11eb-9a61-f155de9ec1d6.PNG)
 ![tb6](https://user-images.githubusercontent.com/19844780/120911535-0be82500-c63d-11eb-8c4a-94641895c0e0.PNG)
-
+![tb7](https://user-images.githubusercontent.com/19844780/120911592-6bdecb80-c63d-11eb-9b6b-02a74a85a71f.PNG)
 ![tb8](https://user-images.githubusercontent.com/19844780/120911540-0f7bac00-c63d-11eb-8a61-9ceb21a8be1d.PNG)
 ![tb9](https://user-images.githubusercontent.com/19844780/120911543-12769c80-c63d-11eb-9ec4-07a7cd76b19e.PNG)
 
