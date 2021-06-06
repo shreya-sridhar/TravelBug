@@ -3,7 +3,7 @@
 
 ### ✈️ TravelBug  [Website](https://travellerbug.herokuapp.com/) | [Code](https://github.com/shreya-sridhar/travel_itinerary_maker) | [Video Demo](https://www.youtube.com/watch?v=y4_sh7RIJ5g) 
 
-Travel planning website to manage and plan for attractions, book hotels, explore about destination. Focus was to create best in the class user experience and design to motivate travel planning. Optimized website with custom CSS for mobile and desktop experience for large amount of data. Deployed on Heroku.
+Travel planning website to manage and plan for attractions, book hotels, explore about destination. Focus was to create best in the class user experience and design to motivate travel planning. Optimized website with custom CSS for mobile and desktop experience for large amount of data. Deployed on Heroku
 
 1. Developed website using Ruby on Rails using MVC design practices
 2. Integrated Google API for maps, photos & directions, OpenTripMap API for retrieving tourism attractions and Pixabay for getting videos.
