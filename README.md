@@ -30,3 +30,14 @@ Check the video demo of how TravelBug works.
 5. Run rails db:seed to add data to the tables
 6. Run rails s to start the server
 
+![tb1](https://user-images.githubusercontent.com/19844780/120911526-02f75380-c63d-11eb-91ad-88d71fe06e49.PNG)
+![tb2](https://user-images.githubusercontent.com/19844780/120911528-0559ad80-c63d-11eb-9211-5d336214aa78.PNG)
+![tb3](https://user-images.githubusercontent.com/19844780/120911529-07237100-c63d-11eb-83b2-e295b91ca7e5.PNG)
+![Uploading tb4.PNG…]()
+![Uploading tb5.PNG…]()
+![tb6](https://user-images.githubusercontent.com/19844780/120911535-0be82500-c63d-11eb-8c4a-94641895c0e0.PNG)
+![Uploading tb7.PNG…]()
+![tb8](https://user-images.githubusercontent.com/19844780/120911540-0f7bac00-c63d-11eb-8a61-9ceb21a8be1d.PNG)
+![tb9](https://user-images.githubusercontent.com/19844780/120911543-12769c80-c63d-11eb-9ec4-07a7cd76b19e.PNG)
+
+
