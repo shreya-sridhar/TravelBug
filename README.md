@@ -12,7 +12,7 @@ Travel planning website to manage and plan for attractions, book hotels, explore
 Technologies: Ruby, Rails, Javascript, Postgresql, Rest API integration, Cookies & Sessions
 
 🎥 Video demo
-Check the video demo of how TravelBug works.
+Check the [Video Demo](https://www.youtube.com/watch?v=y4_sh7RIJ5g)  of how TravelBug works.
 
 👉 User Stories
 - As a user you can login or create an account
