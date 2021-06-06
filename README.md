@@ -33,14 +33,29 @@ Check the video demo of how TravelBug works.
 
 ##### Landing Page
 <img src="https://user-images.githubusercontent.com/19844780/120911526-02f75380-c63d-11eb-91ad-88d71fe06e49.PNG" width="350">
+
+##### Custom packages
 <img src="https://user-images.githubusercontent.com/19844780/120911528-0559ad80-c63d-11eb-9211-5d336214aa78.PNG" width="350">
+
+##### Custom experiences
 <img src="https://user-images.githubusercontent.com/19844780/120911529-07237100-c63d-11eb-83b2-e295b91ca7e5.PNG" width="350">
+
+##### Search Option for Cities
 <img src="https://user-images.githubusercontent.com/19844780/120911584-608ba000-c63d-11eb-804e-87014f84b1cd.PNG" width="350">
 
+##### Explore different cities
 <img src="https://user-images.githubusercontent.com/19844780/120911587-684b4480-c63d-11eb-9a61-f155de9ec1d6.PNG" width="350">
+
+##### Create itinerary/ use custom itinerary
 <img src="https://user-images.githubusercontent.com/19844780/120911535-0be82500-c63d-11eb-8c4a-94641895c0e0.PNG" width="350">
+
+##### Choose tourist attractions in city
 <img src="https://user-images.githubusercontent.com/19844780/120911592-6bdecb80-c63d-11eb-9b6b-02a74a85a71f.PNG" width="350">
+
+##### Add attraction to itinerary
 <img src="https://user-images.githubusercontent.com/19844780/120911540-0f7bac00-c63d-11eb-8a61-9ceb21a8be1d.PNG" width="350">
+
+##### Itinerary View
 <img src="https://user-images.githubusercontent.com/19844780/120911543-12769c80-c63d-11eb-9ec4-07a7cd76b19e.PNG" width="350">
 
 
